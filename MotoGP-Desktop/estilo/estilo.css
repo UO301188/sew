@@ -1,5 +1,42 @@
 /* Adrián Pérez Menéndez UO301188 */
 /* Estilos generales del proyecto MotoGP-Desktop*/
 
+/* Selector: body (especificidad 0,0,1) */
+body {
+    background-color: #ffffff; /* fondo blanco */
+    color: #000000; /* texto negro */
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+/* Selector: header (especificidad 0,0,1) */
+header {
+    background-color: #0055aa; /* azul clásico */
+}
+
+/* Selector: h1 (especificidad 0,0,1) */
+h1 {
+    color: #ffffff; /* texto blanco */
+}
+
+/* Selector: nav (especificidad 0,0,1) */
+nav {
+    color: #ffffff; /* texto blanco */
+}
+
+/* Selector: nav a (especificidad 0,0,2) */
+nav a {
+    color: #ffffff; /* enlaces blancos */
+    text-decoration: none;
+    padding: 0.3em 0.7em;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+/* Selector: nav a:hover, nav a:focus (especificidad 0,0,3) */
+nav a:hover,
+nav a:focus {
+    background-color: #cccccc; /* gris claro en hover */
+    color: #0055aa; /* azul en hover */
+}
 
 
