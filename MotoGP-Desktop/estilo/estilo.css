@@ -15,7 +15,7 @@ header {
 
 /* Selector: h1 (especificidad 0,0,1) */
 h1 {
-    color: #ffffff; /* texto blanco */
+    color: #0055aa;/* texto azul */
 }
 
 /* Selector: nav (especificidad 0,0,1) */
