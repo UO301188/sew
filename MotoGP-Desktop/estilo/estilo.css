@@ -23,7 +23,7 @@ h1 {
 
 /* Selector: nav (especificidad 0,0,1) */
 nav {
-    color: #ffffff; /* texto blanco */
+    color: #0055aa; 
     background-color: #ffffff;
 }
 
