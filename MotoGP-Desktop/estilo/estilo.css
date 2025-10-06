@@ -52,4 +52,14 @@ nav a:focus {
     outline: 2px solid #ffffff; /* accesible: indicador visible en focus */
     outline-offset: 2px;
 }
+/* Selector: header + p (especificidad 0,0,2) */
+header + p {
+    font-size: 1.1rem; /* tamaño relativo para adaptabilidad */
+}
+/* Selector: header + p strong (especificidad 0,0,3) */
+header + p strong {
+    font-weight: bold;
+    color: #000000; /* contraste máximo */
+}
+
 
