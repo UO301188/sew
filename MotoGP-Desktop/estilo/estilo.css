@@ -17,6 +17,7 @@ header {
 /* Selector: h1 (especificidad 0,0,1) */
 h1 {
     color: #0055aa;/* texto azul */
+    background-color: #ffffff;
 }
 
 
