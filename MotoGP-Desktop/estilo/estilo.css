@@ -37,6 +37,12 @@ nav a {
     transition: background 0.2s;
 }
 
+nav a.active {
+    color: #ffffff;
+    background-color: #0055aa;
+    font-weight: bold;
+}
+
 /* Selector: nav a:hover, nav a:focus (especificidad 0,0,3) */
 nav a:hover,
 nav a:focus {
