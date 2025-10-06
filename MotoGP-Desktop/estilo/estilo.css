@@ -38,7 +38,7 @@ nav a {
 }
 
 nav a.active {
-    color: #ffff00;
+    color: #ffd700;
     background-color: #0055aa;
     font-weight: bold;
 }
