@@ -38,8 +38,8 @@ nav a {
 }
 /* Selector nav a.active (especificidad 0, 1, 2) */
 nav a.active {
-    color: #ffd700;
-    background-color: #0055aa;
+    color: #ffffff; /* blanco puro */
+    background-color: #003366; /* azul oscuro */
     font-weight: bold;
 }
 
