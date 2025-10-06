@@ -24,7 +24,7 @@ h1 {
 /* Selector: nav (especificidad 0,0,1) */
 nav {
     color: #ffffff; /* texto blanco */
-    background-color: #0055aa; 
+    background-color: transparent; 
 }
 
 /* Selector: nav a (especificidad 0,0,2) */
