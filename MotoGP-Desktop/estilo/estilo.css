@@ -36,19 +36,18 @@ nav a {
     transition: background 0.2s, color 0.2s;
 }
 
-/* Selector nav a.active (especificidad 0,1,2) */
-nav a.active {
-    color: #ffffff !important;
-    background-color: #001a33 !important; /* un tono aún más oscuro para destacar */
-    font-weight: bold;
-}
-
-/* Selector: nav a:hover, nav a:focus (especificidad 0,0,3) */
-nav a:hover,
-nav a:focus {
-    background-color: #0055aa; /* azul más vivo en hover */
-    color: #ffffff;           /* mantiene contraste alto */
-    outline: 2px solid #ffffff; /* accesible: indicador visible en focus */
-    outline-offset: 2px;
+/* Selector nav a.active (especificidad 0,1,2) */ 
+nav a.active { 
+    color: #ffcc00 !important; /* amarillo brillante para contraste máximo */ 
+    background-color: #000000 !important; /* negro absoluto */ 
+    font-weight: bold; 
+    border: 2px solid #ffcc00; /* borde amarillo para reforzar distinción */ 
+} 
+    /* Selector: nav a:hover, nav a:focus (especificidad 0,0,3) */ 
+nav a:hover, nav a:focus { 
+    background-color: #0055aa; /* azul más vivo en hover */ 
+    color: #ffffff; /* mantiene contraste alto */ 
+    outline: 2px solid #ffffff; /* accesible: indicador visible en focus */ 
+    outline-offset: 2px; 
 }
 
