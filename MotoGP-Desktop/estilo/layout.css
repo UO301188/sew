@@ -1,42 +1,24 @@
 /* Adrián Pérez Menéndez UO301188 */
 /* Estilos del layout (reglas que afecten unicamente a los posicionamientos) del proyecto MotoGP-Desktop*/
 
-/* ===== ESQUEMA FLEXBOX PARA EL HEADER ===== */
+/* ===== ESTILOS BASE PARA MÓVILES (MOBILE FIRST) ===== */
 
-/* Contenedor principal del header con Flexbox */
+/* Contenedor principal del header con Flexbox - Estilo base para móviles */
 header {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     padding: 1rem;
     gap: 1rem;
 }
 
-/* Para pantallas más grandes, cambiamos a disposición horizontal */
-@media (min-width: 768px) {
-    header {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-}
-
-/* ===== ESQUEMA FLEXBOX PARA LA NAVEGACIÓN ===== */
-
-/* Contenedor de navegación con Flexbox */
+/* Contenedor de navegación con Flexbox - Estilo base para móviles */
 header nav {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-/* Para pantallas más grandes, ajustamos el espaciado */
-@media (min-width: 768px) {
-    header nav {
-        justify-content: flex-end;
-        gap: 1rem;
-    }
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 0.3rem;
 }
 
 /* ===== ESQUEMA FLEXBOX PARA EL CONTENIDO PRINCIPAL ===== */
@@ -57,39 +39,11 @@ main {
     gap: 2rem;
 }
 
-/* En pantallas grandes, podemos organizar el contenido en dos columnas */
-@media (min-width: 1024px) {
-    .piloto-page main {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 2rem;
-    }
-    
-    .piloto-page main section:first-child {
-        grid-column: 1 / -1;
-    }
-}
-
-/* ===== ESQUEMA FLEXBOX PARA LA GALERÍA MULTIMEDIA ===== */
-
 /* Organización de elementos multimedia en la página de piloto */
 .piloto-page section:nth-last-child(3) {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-}
-
-@media (min-width: 768px) {
-    .piloto-page section:nth-last-child(3) {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-    
-    .piloto-page section:nth-last-child(3) picture,
-    .piloto-page section:nth-last-child(3) video,
-    .piloto-page section:nth-last-child(3) audio {
-        flex: 1 1 300px;
-    }
 }
 
 /* ===== ESQUEMA FLEXBOX PARA LA TABLA DE ESTADÍSTICAS ===== */
@@ -118,38 +72,76 @@ main {
 
 /* ===== MIGAS DE PAN ===== */
 
-/* Estilo para las migas de navegación */
+/* Estilo para las migas de navegación - Ocultas por defecto en móviles */
 .migas-navegacion {
+    display: none;
     padding: 0.5rem 1rem;
     background-color: #f5f5f5;
     border-bottom: 1px solid #ddd;
+    color: #000000; /* Añadido color de texto para evitar warning */
 }
 
-/* ===== MEDIA QUERIES PARA DISPOSITIVOS MÓVILES ===== */
+/* ===== AJUSTES MULTIMEDIA RESPONSIVOS ===== */
 
-/* Redefinición de estilos para dispositivos móviles (320px - 799px) */
-@media (min-width: 320px) and (max-width: 799px) {
-    /* Redefinición del comportamiento Flexbox del header para mostrar en vertical */
+/* Ajustar video y audio para que sean responsivos en móviles */
+video, audio {
+    width: 100%;
+    height: auto;
+}
+
+/* ===== MEDIA QUERIES PARA DISPOSITIVOS MÁS GRANDES ===== */
+
+/* Tablets (768px en adelante) */
+@media (min-width: 768px) {
+    /* Header cambia a horizontal en tablets y desktop */
     header {
-        flex-direction: column;
-        align-items: stretch;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
     }
     
-    /* Redefinición del comportamiento Flexbox de los enlaces del nav para mostrar en vertical */
+    /* Navegación cambia a horizontal en tablets y desktop */
     header nav {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.3rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 1rem;
     }
     
-    /* Redefinición: ocultar las migas de navegación en dispositivos móviles */
+    /* Mostrar migas de navegación en tablets y desktop */
     .migas-navegacion {
-        display: none;
+        display: block;
     }
     
-    /* Redefinición: ajustar video y audio para que sean responsivos */
+    /* Ajustes para galería multimedia en tablets */
+    .piloto-page section:nth-last-child(3) {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .piloto-page section:nth-last-child(3) picture,
+    .piloto-page section:nth-last-child(3) video,
+    .piloto-page section:nth-last-child(3) audio {
+        flex: 1 1 300px;
+    }
+    
+    /* Ajustar tamaño de multimedia en tablets y desktop */
     video, audio {
-        width: 100%;
-        height: auto;
+        width: auto;
+        max-width: 100%;
+    }
+}
+
+/* Desktop (1024px en adelante) */
+@media (min-width: 1024px) {
+    /* Grid layout para página de piloto en desktop */
+    .piloto-page main {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+    }
+    
+    .piloto-page main section:first-child {
+        grid-column: 1 / -1;
     }
 }
