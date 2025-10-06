@@ -60,6 +60,7 @@ header + p {
 header + p strong {
     font-weight: bold;
     color: #000000; /* contraste máximo */
+    background-color: #ffffff;
 }
 
 
