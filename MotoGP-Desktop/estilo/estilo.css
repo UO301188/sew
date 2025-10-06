@@ -1,4 +1,3 @@
-
 /* Adrián Pérez Menéndez UO301188 */
 /* Estilos generales del proyecto MotoGP-Desktop*/
 
@@ -15,20 +14,31 @@ header {
     color: #000000; 
 }
 
-/* Selector: h1 (especificidad 0,0,1) */
-h1 {
-    color: #0055aa; /* texto azul */
-    background-color: #ffffff;
+/* Todos los enlaces dentro del header sin subrayado por defecto */
+/* Selector Specificity: (0, 0, 2) */
+header a {
+    text-decoration-line: none;
 }
 
-/* Selector: nav (especificidad 0,0,1) */
-nav {
-    background-color: #ffffff;
-    color: #000000;
+/* Enlace principal (h1 > a) */
+/* Selector Specificity: (0, 0, 3) */
+header h1 a {
+    color: #0055aa;          /* azul corporativo */
+    font-size: 2rem;         /* más grande que el resto */
+    font-weight: bold;
+    text-transform: uppercase; /* mayúsculas para reforzar */
 }
 
-/* Selector: nav a (especificidad 0,0,2) */
-nav a {
+/* Selector Specificity: (0, 1, 3) */
+header h1 a:hover,
+header h1 a:focus {
+    color: #003366;                /* azul más oscuro al interactuar */
+    text-decoration-line: underline; /* subrayado accesible */
+}
+
+/* Enlaces de navegación dentro del header */
+/* Selector Specificity: (0, 0, 3) */
+header nav a {
     color: #ffffff;              /* texto blanco */
     background-color: #003366;   /* azul oscuro */
     text-decoration-line: none;
@@ -37,30 +47,38 @@ nav a {
     transition: background 0.2s, color 0.2s;
 }
 
-/* Selector nav a.active (especificidad 0,1,2) */
-nav a.active {
-    color: #ffffff !important;
-    background-color: #001a33 !important; /* un tono aún más oscuro para destacar */
+/* Enlace activo en el menú de navegación */
+/* Selector Specificity: (0, 1, 3) */
+header nav a.active {
+    color: #ffcc00 !important;       /* amarillo brillante */
+    background-color: #000000 !important; /* negro absoluto */
     font-weight: bold;
+    border: 2px solid #ffcc00;       /* borde amarillo para resaltar */
 }
 
-/* Selector: nav a:hover, nav a:focus (especificidad 0,0,3) */
-nav a:hover,
-nav a:focus {
-    background-color: #0055aa; /* azul más vivo en hover */
-    color: #ffffff;           /* mantiene contraste alto */
-    outline: 2px solid #ffffff; /* accesible: indicador visible en focus */
+/* Hover/Focus de los enlaces de navegación */
+header nav a:hover,
+header nav a:focus {
+    background-color: #0055aa;   /* azul más vivo */
+    color: #ffffff;
+    text-decoration-line: underline;
+    outline: 2px solid #ffffff;  /* visible para accesibilidad */
     outline-offset: 2px;
 }
-/* Selector: header + p (especificidad 0,0,2) */
+
+
+/* Selecciona solo el párrafo después del header (migas de navegación) */
+/* Selector Specificity: (0, 0, 2) */
 header + p {
-    font-size: 1.1rem; /* tamaño relativo para adaptabilidad */
+    font-size: 1.1rem; /* medida relativa para adaptabilidad */
 }
-/* Selector: header + p strong (especificidad 0,0,3) */
+
+/* Destacar el último elemento de la miga de pan */
+/* Selector Specificity: (0, 0, 3) */
 header + p strong {
     font-weight: bold;
-    color: #000000; /* contraste máximo */
-    background-color: #ffffff;
+    color: #000000;
 }
+
 
 
