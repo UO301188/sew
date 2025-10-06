@@ -36,7 +36,7 @@ nav a {
     border-radius: 4px;
     transition: background 0.2s;
 }
-
+/* Selector nav a.active (especificidad 0, 1, 2) */
 nav a.active {
     color: #ffd700;
     background-color: #0055aa;
