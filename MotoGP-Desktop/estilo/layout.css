@@ -1,2 +1,126 @@
 /* Adrián Pérez Menéndez UO301188 */
 /* Estilos del layout (reglas que afecten unicamente a los posicionamientos) del proyecto MotoGP-Desktop*/
+
+/* ===== ESQUEMA FLEXBOX PARA EL HEADER ===== */
+
+/* Contenedor principal del header con Flexbox */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+/* Para pantallas más grandes, cambiamos a disposición horizontal */
+@media (min-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+/* ===== ESQUEMA FLEXBOX PARA LA NAVEGACIÓN ===== */
+
+/* Contenedor de navegación con Flexbox */
+header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+/* Para pantallas más grandes, ajustamos el espaciado */
+@media (min-width: 768px) {
+    header nav {
+        justify-content: flex-end;
+        gap: 1rem;
+    }
+}
+
+/* ===== ESQUEMA FLEXBOX PARA EL CONTENIDO PRINCIPAL ===== */
+
+/* Estructura básica del contenido principal */
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+/* ===== ESQUEMA FLEXBOX PARA LA PÁGINA DE PILOTO ===== */
+
+/* Para la página de piloto, organizamos las secciones en columnas */
+.piloto-page main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* En pantallas grandes, podemos organizar el contenido en dos columnas */
+@media (min-width: 1024px) {
+    .piloto-page main {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+    }
+    
+    .piloto-page main section:first-child {
+        grid-column: 1 / -1;
+    }
+}
+
+/* ===== ESQUEMA FLEXBOX PARA LA GALERÍA MULTIMEDIA ===== */
+
+/* Organización de elementos multimedia en la página de piloto */
+.piloto-page section:nth-last-child(3) {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .piloto-page section:nth-last-child(3) {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .piloto-page section:nth-last-child(3) picture,
+    .piloto-page section:nth-last-child(3) video,
+    .piloto-page section:nth-last-child(3) audio {
+        flex: 1 1 300px;
+    }
+}
+
+/* ===== ESQUEMA FLEXBOX PARA LA TABLA DE ESTADÍSTICAS ===== */
+
+/* Mejora de la visualización de la tabla */
+.piloto-page table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+/* ===== ESQUEMA FLEXBOX PARA LA PÁGINA DE AYUDA ===== */
+
+/* Organización de las secciones de ayuda */
+.ayuda-page main {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.ayuda-page section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* ===== MIGAS DE PAN ===== */
+
+/* Estilo para las migas de navegación */
+.migas-navegacion {
+    padding: 0.5rem 1rem;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+}
