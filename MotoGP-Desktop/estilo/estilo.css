@@ -29,13 +29,14 @@ nav {
 
 /* Selector: nav a (especificidad 0,0,2) */
 nav a {
-    color: #0055aa;
+    color: #003366;
     background-color: #cce6ff;
     text-decoration-line: none;
     padding: 0.3em 0.7em;
     border-radius: 4px;
     transition: background 0.2s;
 }
+
 /* Selector nav a.active (especificidad 0, 1, 2) */
 nav a.active {
     color: #ffffff !important;
