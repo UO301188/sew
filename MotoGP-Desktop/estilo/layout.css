@@ -6,8 +6,6 @@
 /* Contenedor principal del header con Flexbox */
 header {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     padding: 1rem;
     gap: 1rem;
 }
@@ -17,6 +15,15 @@ header {
     header {
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
+    }
+}
+
+/* Para pantallas móviles */
+@media (max-width: 767px) {
+    header {
+        flex-direction: column;
+        align-items: center;
     }
 }
 
@@ -26,7 +33,6 @@ header {
 header nav {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 0.5rem;
 }
 
@@ -34,6 +40,13 @@ header nav {
 @media (min-width: 768px) {
     header nav {
         justify-content: flex-end;
+    }
+}
+
+/* Para pantallas móviles */
+@media (max-width: 767px) {
+    header nav {
+        justify-content: center;
     }
 }
 
@@ -86,6 +99,13 @@ main {
     }
 }
 
+/* Para pantallas móviles */
+@media (max-width: 767px) {
+    .piloto-page section:nth-last-child(3) {
+        flex-direction: column;
+    }
+}
+
 /* ===== ESQUEMA FLEXBOX PARA LA TABLA DE ESTADÍSTICAS ===== */
 
 /* Mejora de la visualización de la tabla */
@@ -115,5 +135,5 @@ main {
     padding: 0.5rem 1rem;
     background-color: #f5f5f5;
     border-bottom: 1px solid #ddd;
-    color: #333; /* Añadido: color de primer plano para contraste */
+    color: #333; /
 }
