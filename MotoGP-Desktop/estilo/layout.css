@@ -17,7 +17,6 @@ header {
     header {
         flex-direction: row;
         justify-content: space-between;
-        align-items: center;
     }
 }
 
@@ -35,7 +34,6 @@ header nav {
 @media (min-width: 768px) {
     header nav {
         justify-content: flex-end;
-        gap: 1rem;
     }
 }
 
@@ -52,8 +50,6 @@ main {
 
 /* Para la página de piloto, organizamos las secciones en columnas */
 .piloto-page main {
-    display: flex;
-    flex-direction: column;
     gap: 2rem;
 }
 
@@ -62,7 +58,6 @@ main {
     .piloto-page main {
         display: grid;
         grid-template-columns: 2fr 1fr;
-        gap: 2rem;
     }
     
     .piloto-page main section:first-child {
@@ -105,8 +100,6 @@ main {
 
 /* Organización de las secciones de ayuda */
 .ayuda-page main {
-    display: flex;
-    flex-direction: column;
     gap: 1.5rem;
 }
 
@@ -123,4 +116,5 @@ main {
     padding: 0.5rem 1rem;
     background-color: #f5f5f5;
     border-bottom: 1px solid #ddd;
+    color: #333; /* Añadido: color de primer plano para contraste */
 }
