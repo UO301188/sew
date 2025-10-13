@@ -24,6 +24,7 @@ header a {
 /* Selector Specificity: (0, 0, 3) */
 header h1 a {
     color: #0055aa;          /* azul corporativo */
+    background-color: transparent; /* añadido para validador */
     font-size: 2rem;         /* más grande que el resto */
     font-weight: bold;
     text-transform: uppercase; /* mayúsculas para reforzar */
@@ -33,6 +34,7 @@ header h1 a {
 header h1 a:hover,
 header h1 a:focus {
     color: #003366;                /* azul más oscuro al interactuar */
+    background-color: transparent; /* añadido para validador */
     text-decoration-line: underline; /* subrayado accesible */
 }
 
@@ -53,7 +55,6 @@ header nav a.active {
     color: #ffffff !important;
     background-color: #001a33 !important; /* un tono aún más oscuro para destacar */
     font-weight: bold;
-    
 }
 
 /* Hover/Focus de los enlaces de navegación */
@@ -66,7 +67,6 @@ header nav a:focus {
     outline-offset: 2px;
 }
 
-
 /* Selecciona solo el párrafo después del header (migas de navegación) */
 /* Selector Specificity: (0, 0, 2) */
 header + p {
@@ -78,7 +78,7 @@ header + p {
 header + p strong {
     font-weight: bold;
     color: #000000;
+    background-color: transparent; /* añadido para validador */
 }
-
 
 

@@ -13,6 +13,7 @@ header {
 }
 
 /* Para pantallas más grandes, cambiamos a disposición horizontal */
+/* Redefinición intencional de flex-direction y justify-content (layout responsivo) */
 @media (min-width: 768px) {
     header {
         flex-direction: row;
@@ -30,7 +31,7 @@ header nav {
     gap: 0.5rem;
 }
 
-/* Para pantallas más grandes, ajustamos el espaciado */
+/* Redefinición intencional de justify-content */
 @media (min-width: 768px) {
     header nav {
         justify-content: flex-end;
