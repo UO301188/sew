@@ -118,3 +118,43 @@ main {
     border-bottom: 1px solid #ddd;
     color: #333; /* Añadido: color de primer plano para contraste */
 }
+
+/* ========================================================= */
+/* === EJERCICIO 6: Adaptabilidad de los contenidos === */
+/* ========================================================= */
+
+/* 
+   En pantallas pequeñas (móviles), reorganizamos el layout 
+   y garantizamos la adaptabilidad de todos los contenidos.
+*/
+
+@media (min-width: 320px) and (max-width: 799px) {
+
+    /* Redefinición intencional de flex-direction y justify-content */
+    header {
+        flex-direction: column; /* los elementos del header se apilan en vertical */
+        align-items: center;
+    }
+
+    /* Redefinición intencional del flex de los enlaces del nav */
+    header nav {
+        flex-direction: column; /* los enlaces del menú se apilan */
+        align-items: center;
+    }
+
+    /* Ocultar las migas de navegación en móviles */
+    header + p {
+        display: none;
+    }
+
+    /* Adaptar los elementos multimedia */
+    video {
+        width: 100%;
+        height: auto;
+    }
+
+    audio {
+        width: 100%;
+    }
+}
+
