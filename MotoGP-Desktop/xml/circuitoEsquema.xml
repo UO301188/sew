@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<circuito xmlns="http://www.uniovi.es"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.uniovi.es circuito.xsd">
+
+<nombre>Circuito Internazionale del Mugello</nombre>
+
+<!-- Longitud y anchura con atributo de unidades -->
+<longitud unidad="metros">5243</longitud>
+<anchura unidad="metros">14</anchura>
+
+<!-- Fecha y hora (especificadas en 2025, hora española) -->
+<fecha>2025-05-11</fecha>
+<hora>14:00</hora>
+
+<numVueltas>23</numVueltas>
+
+<localidad>Scarperia e San Piero</localidad>
+<pais>Italia</pais>
+
+<patrocinador>Ducati</patrocinador>
+
+<!-- Referencias / bibliografía (mínimo 3) -->
+<referencias>
+<referencia>MotoGP Official - Mugello circuit information</referencia>
+<referencia>Wikipedia - Autodromo Internazionale del Mugello</referencia>
+<referencia>FIM - Circuit technical data and map</referencia>
+</referencias>
+
+<!-- Galería de fotos: rutas relativas desde la carpeta XML a ../multimedia -->
+<galeriaFotos>
+<foto src="..\multimedia\Panorama.jpg" alt="Foto panoramica del circuito">Panorámica del circuito</foto>
+<foto src="..\multimedia\RectaMeta.jpg"  alt="Foto de la recta de meta del circuito">Recta de meta</foto>
+<foto src="..\multimedia\CurvaSanDonato.jpg"  alt="Foto de la curva San Donato del circuito">Curva San Donato</foto>
+</galeriaFotos>
+
+<!-- Galería de vídeos: rutas relativas -->
+<galeriaVideos>
+<video src="..\multimedia\ResumenCircuito.mp4" alt="Video del resumen del circuito">Resumen del circuito</video>
+</galeriaVideos>
+
+<!-- Punto origen: coordenadas del centro en la línea de salida -->
+<origen>
+<longitudCoord unidad="grados">11.3497</longitudCoord>
+<latitudCoord unidad="grados">43.9972</latitudCoord>
+<altitudCoord unidad="grados">210</altitudCoord>
+</origen>
+
+<!-- Tramos: serie de tramos que cubren sectores, rectas y curvas -->
+<tramos>
+<!-- Tramo 1: inicio a curva 1 -->
+<tramo distancia="650">
+<puntoFinal>
+<longFinal unidad="grados">11.3521</longFinal>
+<latFinal unidad="grados">43.9980</latFinal>
+<altFinal unidad="grados">212</altFinal>
+</puntoFinal>
+<sector>1</sector>
+</tramo>
+
+<!-- Tramo 2: sector curvo -->
+<tramo distancia="840">
+<puntoFinal>
+<longFinal unidad="grados">11.3540</longFinal>
+<latFinal unidad="grados">44.0002</latFinal>
+<altFinal unidad="grados">218</altFinal>
+</puntoFinal>
+<sector>1</sector>
+</tramo>
+
+<!-- Tramo 3: recta larga -->
+<tramo distancia="1200">
+<puntoFinal>
+<longFinal unidad="grados">11.3458</longFinal>
+<latFinal unidad="grados">44.0010</latFinal>
+<altFinal unidad="grados">205</altFinal>
+</puntoFinal>
+<sector>2</sector>
+</tramo>
+
+<!-- Tramo 4: curva final hacia meta -->
+<tramo distancia="1553">
+<puntoFinal>
+<longFinal unidad="grados">11.3497</longFinal>
+<latFinal unidad="grados">43.9972</latFinal>
+<altFinal unidad="grados">210</altFinal>
+</puntoFinal>
+<sector>3</sector>
+</tramo>
+</tramos>
+
+<!-- Vencedor de la carrera y duración -->
+<vencedor>
+<nombreVencedor>Marc Marquez</nombreVencedor>
+<duracion unidad="minutos y segundos">41m 09.214s</duracion>
+</vencedor>
+
+<!-- Tres primeros del mundial 2025 tras la carrera -->
+<clasificacion>
+<puesto1>Marc Marquez</puesto1>
+<puesto2>Alex Marquez</puesto2>
+<puesto3>Francesco Bagnaia</puesto3>
+</clasificacion>
+</circuito>
