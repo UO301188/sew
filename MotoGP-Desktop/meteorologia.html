@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css"  />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
     <link rel="icon" href="multimedia/favicon.ico" type="image/x-icon" />
+    <script src="js/ciudad.js"></script>
 </head>
 
 <body>
@@ -32,8 +33,25 @@
     </header>
     <p class="migas-navegacion">Estás en: <a href="index.html">Inicio</a> &gt;&gt; <strong>Meteorologia</strong></p>
     <main>
-        <p>en desarrollo </p>
         <h2>Meteorologia de MotoGP-Desktop</h2>
+        <p>A continuación se muestra la información de la ciudad asociada al circuito:</p>
+
+        <script>
+            // Crear la instancia de la ciudad
+            const scarperia = new Ciudad("Scarperia", "Italia", "scarperiense");
+            scarperia.fillAtributes();
+
+            // Mostrar información principal
+            document.write(`<h2>Ciudad: ${scarperia.getNombreCiudad()}</h2>`);
+            document.write(`<p><strong>País:</strong> ${scarperia.pais}</p>`);
+
+            // Mostrar información secundaria
+            document.write(`<h3>Información secundaria</h3>`);
+            document.write(scarperia.getInfoSecundaria());
+
+            // Mostrar coordenadas
+            scarperia.mostrarCoordenadas();
+        </script>
     </main>
 </body>
 
