@@ -30,15 +30,15 @@ class Ciudad{
     getInfoSecundaria() {
         return `
         <ul>
-            <li><strong>Gentilicio:</strong> ${this.gentilicio}</li>
-            <li><strong>Población:</strong> ${this.cantidadPoblacion.toLocaleString()}</li>
+            <li>Gentilicio: ${this.gentilicio}</li>
+            <li>Población: ${this.cantidadPoblacion.toLocaleString()}</li>
         </ul>
         `;
     }
 
     mostrarCoordenadas() {
         document.write(`
-            <p><strong>Coordenadas de ${this.nombre}:</strong></p>
+            <p>Coordenadas de ${this.nombre}:</p>
             <ul>
                 <li>Latitud: ${this.coordenadas.latitud}</li>
                 <li>Longitud: ${this.coordenadas.longitud}</li>
