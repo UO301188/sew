@@ -1,4 +1,4 @@
-  /* layout-cards.css */
+/* layout-cards.css */
 /* Esquema de grid para el juego de memoria */
 
 /* Grid general del main */
@@ -24,13 +24,18 @@ main > h2 {
 /* especificidad: 001 */
 @media (max-width: 37.5em) { /* aprox 600px */
     main {
+        /* redefinición de grid-template-columns */
         grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+        /* redefinición de grid-template-rows */
         grid-template-rows: auto repeat(6, 1fr); /* 6 filas para las 12 cartas */
+        /* redefinición de gap */
         gap: 1em;
     }
 
     main > h2 {
+        /* redefinición de font-size */
         font-size: 1.3em;
+        /* redefinición de margin-bottom */
         margin-bottom: 0.8em;
     }
 }
