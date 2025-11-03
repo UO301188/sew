@@ -1,81 +1,98 @@
+/* cronometro.js */
 /* Clase Cronometro: controla el tiempo en minutos, segundos y décimas de segundo */
 
 class Cronometro {
     constructor() {
-        this.tiempo = 0;
-        this.inicio = null;
-        this.corriendo = null;
+        this.tiempo = 0;      // tiempo acumulado en milisegundos
+        this.inicio = null;   // instante en el que se inicia o reanuda
+        this.corriendo = null; // id del intervalo activo
+        this.usandoTemporal = false; // true si se usa Temporal
     }
 
     arrancar() {
+        // Evita crear más de un intervalo
+        if (this.corriendo) return;
+
         try {
-            this.inicio = Temporal.Now.instant();
-            console.log("Usando Temporal para medir el tiempo.");
+            const ahora = Temporal.Now.instant();
+            this.usandoTemporal = true;
+
+            if (this.tiempo > 0) {
+                // Si ya había tiempo acumulado (reanudamos)
+                const dur = Temporal.Duration.from({ milliseconds: this.tiempo });
+                this.inicio = ahora.subtract(dur);
+            } else {
+                // Primera vez que arranca
+                this.inicio = ahora;
+            }
+
         } catch (error) {
-            this.inicio = new Date();
-            console.log("Temporal no disponible. Usando Date.");
+            // Fallback si Temporal no está disponible
+            this.usandoTemporal = false;
+            const ahora = new Date();
+
+            if (this.tiempo > 0) {
+                // Si ya había tiempo acumulado, restamos ese tiempo
+                this.inicio = new Date(ahora.getTime() - this.tiempo);
+            } else {
+                this.inicio = ahora;
+            }
         }
-        // Llamamos a actualizar cada 0.1 segundos (100 ms)
+
+        // Actualiza cada décima de segundo (100 ms)
         this.corriendo = setInterval(this.actualizar.bind(this), 100);
+        this.actualizar(); // actualiza inmediatamente
     }
 
     actualizar() {
         try {
-            // Obtenemos el momento actual
-            const ahora = Temporal.Now.instant();
-
-            // Calculamos la duración transcurrida desde el inicio
-            const duracion = ahora.since(this.inicio, { smallestUnit: "milliseconds" });
-
-            // Guardamos el tiempo transcurrido en el atributo tiempo
-            this.tiempo = duracion.total({ unit: "milliseconds" });
+            if (this.usandoTemporal) {
+                const ahora = Temporal.Now.instant();
+                const duracion = ahora.since(this.inicio, { largestUnit: "milliseconds" });
+                this.tiempo = Math.round(duracion.total({ unit: "milliseconds" }));
+            } else {
+                const ahora = new Date();
+                this.tiempo = ahora.getTime() - this.inicio.getTime();
+            }
         } catch (error) {
+            // Fallback seguro
             const ahora = new Date();
-            this.tiempo = ahora - this.inicio;
+            if (this.inicio instanceof Date)
+                this.tiempo = ahora.getTime() - this.inicio.getTime();
         }
+
         this.mostrar();
     }
 
-    /* ----------- NUEVO: Métodos de utilidad (Tarea 5) ----------- */
-
     mostrar() {
-        // Descomponemos el tiempo (en milisegundos) en minutos, segundos y décimas
-        const minutos = parseInt(this.tiempo / 60000);
-        const segundos = parseInt((this.tiempo % 60000) / 1000);
-        const decimas = parseInt((this.tiempo % 1000) / 100); // décimas = cada 100 ms
+        const minutos = parseInt(this.tiempo / 60000, 10);
+        const segundos = parseInt((this.tiempo % 60000) / 1000, 10);
+        const decimas = parseInt((this.tiempo % 1000) / 100, 10);
 
-        // Formateamos con ceros delante
         const mm = String(minutos).padStart(2, "0");
         const ss = String(segundos).padStart(2, "0");
 
-        // Creamos la cadena final en formato mm:ss.s
         const texto = `${mm}:${ss}.${decimas}`;
 
-        // Mostramos en el primer <p> dentro de <main>
-        const parrafo = document.querySelector("main p");
-        if (parrafo) {
-            parrafo.textContent = texto;
-        }
-
-        // (Opcional para depuración)
-        console.log(texto);
+        const parrafo = document.getElementById("pantalla") || document.querySelector("main p");
+        if (parrafo) parrafo.textContent = texto;
     }
 
     parar() {
-        // Detiene el intervalo
-        clearInterval(this.corriendo);
-        this.corriendo = null;
+        if (this.corriendo) {
+            clearInterval(this.corriendo);
+            this.corriendo = null;
+        }
     }
 
     reiniciar() {
-        // Detiene el cronómetro
-        clearInterval(this.corriendo);
-        this.corriendo = null;
-
-        // Pone el tiempo a cero
+        if (this.corriendo) {
+            clearInterval(this.corriendo);
+            this.corriendo = null;
+        }
         this.tiempo = 0;
-
-        // Actualiza la visualización
+        this.inicio = null;
         this.mostrar();
     }
 }
+
