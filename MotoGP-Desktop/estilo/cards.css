@@ -20,6 +20,12 @@ main article[data-state=flip] {
     transform: rotateY(180deg);
 }
 
+article[data-state="revelada"] {
+    transform: rotateY(180deg);
+    pointer-events: none; /* evita que se puedan clicar */
+    opacity: 0.8; /* opcional: darles un tono más suave */
+}
+
 /* Reglas con los estilos generales para el encabezado y la imagen de la carta */
 /* especificidad: 002 */
 /* especificidad: 002 */
