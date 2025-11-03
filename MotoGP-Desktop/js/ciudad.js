@@ -28,21 +28,28 @@ class Ciudad{
     }
 
     getInfoSecundaria() {
+        // Devuelve HTML con la información secundaria (no escribe en el documento)
         return `
-        <ul>
-            <li>Gentilicio: ${this.gentilicio}</li>
-            <li>Población: ${this.cantidadPoblacion.toLocaleString()}</li>
-        </ul>
+        <section aria-label="Información secundaria">
+            <h3>Información secundaria</h3>
+            <ul>
+                <li>Gentilicio: ${this.gentilicio}</li>
+                <li>Población: ${this.cantidadPoblacion.toLocaleString()}</li>
+            </ul>
+        </section>
         `;
     }
 
-    mostrarCoordenadas() {
-        document.write(`
+    getCoordenadasHTML() {
+        // Devuelve HTML con las coordenadas (sustituye el anterior document.write)
+        return `
+        <section aria-label="Coordenadas">
             <p>Coordenadas de ${this.nombre}:</p>
             <ul>
                 <li>Latitud: ${this.coordenadas.latitud}</li>
                 <li>Longitud: ${this.coordenadas.longitud}</li>
             </ul>
-        `);
+        </section>
+        `;
     }
 }

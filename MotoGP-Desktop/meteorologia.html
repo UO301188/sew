@@ -41,16 +41,24 @@
             const scarperia = new Ciudad("Scarperia", "Italia", "scarperiense");
             scarperia.fillAtributes();
 
-            // Mostrar información principal
-            document.write(`<h2>Ciudad: ${scarperia.getNombreCiudad()}</h2>`);
-            document.write(`<p>País: ${scarperia.pais}</p>`);
+            // Referencia al contenedor principal (main) y añadir elementos sin usar document.write
+            const mainEl = document.querySelector('main');
 
-            // Mostrar información secundaria
-            document.write(`<h3>Información secundaria</h3>`);
-            document.write(scarperia.getInfoSecundaria());
+            // Título de la ciudad
+            const cityH2 = document.createElement('h2');
+            cityH2.textContent = `Ciudad: ${scarperia.getNombreCiudad()}`;
+            mainEl.appendChild(cityH2);
 
-            // Mostrar coordenadas
-            scarperia.mostrarCoordenadas();
+            // País
+            const paisP = document.createElement('p');
+            paisP.textContent = `País: ${scarperia.getPais()}`;
+            mainEl.appendChild(paisP);
+
+            // Información secundaria (método devuelve HTML)
+            mainEl.insertAdjacentHTML('beforeend', scarperia.getInfoSecundaria());
+
+            // Coordenadas (método devuelve HTML)
+            mainEl.insertAdjacentHTML('beforeend', scarperia.getCoordenadasHTML());
         </script>
     </main>
 </body>
