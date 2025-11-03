@@ -29,7 +29,7 @@ class Cronometro {
 
             // Guardamos el tiempo transcurrido en el atributo tiempo
             this.tiempo = duracion.total({ unit: "milliseconds" });
-        } catch (error) {e
+        } catch (error) {
             const ahora = new Date();
             this.tiempo = ahora - this.inicio;
         }
