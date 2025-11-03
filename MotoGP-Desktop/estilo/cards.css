@@ -21,10 +21,11 @@ main article[data-state=flip] {
 }
 
 article[data-state="revelada"] {
-    transform: rotateY(180deg);
-    pointer-events: none; /* evita que se puedan clicar */
-    opacity: 0.8; /* opcional: darles un tono más suave */
+    transform: rotateY(180deg); /* mantiene el giro correcto */
+    pointer-events: none; /* evita clics */
+    opacity: 1; /* o 0.8 si quieres efecto tenue */
 }
+
 
 /* Reglas con los estilos generales para el encabezado y la imagen de la carta */
 /* especificidad: 002 */

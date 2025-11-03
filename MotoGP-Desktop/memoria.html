@@ -12,11 +12,15 @@
     <link rel="stylesheet" type="text/css" href="estilo/layout-cards.css" />
     <link rel="icon" href="multimedia/favicon.ico" type="image/x-icon" />
 
-    <!-- Enlace al script y creación de la instancia -->
+    <!-- Enlace al script del cronómetro -->
+    <script src="js/cronometro.js"></script>
+
+    <!-- Enlace al script del juego de memoria -->
     <script src="js/memoria.js"></script>
     <script>
         const juegoMemoria = new Memoria();
     </script>
+
 </head>
 
 <body>
@@ -41,6 +45,8 @@
 
     <main>
         <h2>Juego de memoria con cartas</h2>
+
+        <p id="cronometro">00:00.0</p>
 
         <!-- Carta 1 -->
         <article onclick="juegoMemoria.flipCard(this)">
