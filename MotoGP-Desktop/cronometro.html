@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>MotoGP-Cronómetro</title>
+    <meta name="author" content="Tu Nombre Aquí" />
+    <meta name="description" content="Documento para probar la clase Cronómetro" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Enlaces a las hojas de estilo del proyecto -->
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="icon" href="multimedia/favicon.ico" type="image/x-icon" />
+
+    <!-- Enlace al script del cronómetro -->
+    <script src="js/cronometro.js"></script>
+    <script>
+        // Creación de la instancia del cronómetro al cargar la página
+        let miCronometro;
+
+        window.onload = function() {
+            miCronometro = new Cronometro();
+        };
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>
+            <a href="index.html" title="Ir a la página principal de MotoGP-Desktop">
+                MotoGP Desktop
+            </a>
+        </h1>
+        <nav>
+            <a href="index.html" title="MotoGP">Inicio</a>
+            <a href="piloto.html" title="MotoGP-Piloto">Piloto</a>
+            <a href="circuito.html" title="MotoGP-Circuito">Circuito</a>
+            <a href="meteorologia.html" title="MotoGP-Meteorologia">Meteorología</a>
+            <a href="clasificaciones.html" title="MotoGP-Clasificaciones">Clasificaciones</a>
+            <a href="juegos.html" title="MotoGP-Juegos">Juegos</a>
+            <a href="cronometro.html" class="active" title="MotoGP-Cronómetro">Cronómetro</a>
+            <a href="ayuda.html" title="MotoGP-Ayuda">Ayuda</a>
+        </nav>
+    </header>
+
+    <p class="migas-navegacion">
+        Estás en: <a href="index.html">Inicio</a> &gt;&gt;
+        <strong>Cronómetro</strong>
+    </p>
+
+    <main>
+        <h2>Prueba del Cronómetro</h2>
+
+        <!-- Párrafo donde se muestra el tiempo -->
+        <p id="pantalla">00:00.0</p>
+
+        <!-- Sección de botones de control -->
+        <section>
+            <h3>Controles del cronómetro</h3>
+            <button type="button" onclick="miCronometro.arrancar()">Arrancar</button>
+            <button type="button" onclick="miCronometro.parar()">Parar</button>
+            <button type="button" onclick="miCronometro.reiniciar()">Reiniciar</button>
+        </section>
+    </main>
+</body>
+</html>
+
