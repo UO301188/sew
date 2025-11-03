@@ -20,7 +20,6 @@
     <script>
         const juegoMemoria = new Memoria();
     </script>
-
 </head>
 
 <body>
@@ -32,7 +31,7 @@
             <a href="index.html" title="MotoGP">Inicio</a>
             <a href="piloto.html" title="MotoGP-Piloto">Piloto</a>
             <a href="circuito.html" title="MotoGP-Circuito">Circuito</a>
-            <a href="meteorologia.html" title="MotoGP-Meteorologia">Meteorologia</a>
+            <a href="meteorologia.html" title="MotoGP-Meteorologia">Meteorología</a>
             <a href="clasificaciones.html" title="MotoGP-Clasificaciones">Clasificaciones</a>
             <a href="juegos.html" title="MotoGP-Juegos" class="active">Juegos</a>
             <a href="ayuda.html" title="MotoGP-Ayuda">Ayuda</a>
@@ -45,83 +44,68 @@
 
     <main>
         <h2>Juego de memoria con cartas</h2>
-
         <p id="cronometro">00:00.0</p>
 
-        <!-- Carta 1 -->
-        <article onclick="juegoMemoria.flipCard(this)">
+        <!-- Cartas -->
+        <article tabindex="0" onclick="juegoMemoria.flipCard(this)" onkeydown="if(event.key==='Enter'||event.key===' ')juegoMemoria.flipCard(this)">
             <h3>Memory Card</h3>
-            <img src="multimedia/logos/honda.svg" alt="Logo-Honda" />
+            <img src="multimedia/logos/honda.svg" alt="Logo Honda" />
         </article>
 
-        <!-- Carta 2 -->
-        <article onclick="juegoMemoria.flipCard(this)">
+        <article tabindex="0" onclick="juegoMemoria.flipCard(this)" onkeydown="if(event.key==='Enter'||event.key===' ')juegoMemoria.flipCard(this)">
             <h3>Memory Card</h3>
-            <img src="multimedia/logos/honda.svg" alt="Logo-Honda" />
+            <img src="multimedia/logos/honda.svg" alt="Logo Honda" />
         </article>
 
-        <!-- Carta 3 -->
-        <article onclick="juegoMemoria.flipCard(this)">
+        <article tabindex="0" onclick="juegoMemoria.flipCard(this)" onkeydown="if(event.key==='Enter'||event.key===' ')juegoMemoria.flipCard(this)">
             <h3>Memory Card</h3>
-            <img src="multimedia/logos/yamaha.svg" alt="Logo-Yamaha" />
+            <img src="multimedia/logos/yamaha.svg" alt="Logo Yamaha" />
         </article>
 
-        <!-- Carta 4 -->
-        <article onclick="juegoMemoria.flipCard(this)">
+        <article tabindex="0" onclick="juegoMemoria.flipCard(this)" onkeydown="if(event.key==='Enter'||event.key===' ')juegoMemoria.flipCard(this)">
             <h3>Memory Card</h3>
-            <img src="multimedia/logos/yamaha.svg" alt="Logo-Yamaha" />
+            <img src="multimedia/logos/yamaha.svg" alt="Logo Yamaha" />
         </article>
 
-        <!-- Carta 5 -->
-        <article onclick="juegoMemoria.flipCard(this)">
+        <article tabindex="0" onclick="juegoMemoria.flipCard(this)" onkeydown="if(event.key==='Enter'||event.key===' ')juegoMemoria.flipCard(this)">
             <h3>Memory Card</h3>
-            <img src="multimedia/logos/ducati.svg" alt="Logo-Ducati" />
+            <img src="multimedia/logos/ducati.svg" alt="Logo Ducati" />
         </article>
 
-        <!-- Carta 6 -->
-        <article onclick="juegoMemoria.flipCard(this)">
+        <article tabindex="0" onclick="juegoMemoria.flipCard(this)" onkeydown="if(event.key==='Enter'||event.key===' ')juegoMemoria.flipCard(this)">
             <h3>Memory Card</h3>
-            <img src="multimedia/logos/ducati.svg" alt="Logo-Ducati" />
+            <img src="multimedia/logos/ducati.svg" alt="Logo Ducati" />
         </article>
 
-        <!-- Carta 7 -->
-        <article onclick="juegoMemoria.flipCard(this)">
+        <article tabindex="0" onclick="juegoMemoria.flipCard(this)" onkeydown="if(event.key==='Enter'||event.key===' ')juegoMemoria.flipCard(this)">
             <h3>Memory Card</h3>
-            <img src="multimedia/logos/ktm.svg" alt="Logo-KTM" />
+            <img src="multimedia/logos/ktm.svg" alt="Logo KTM" />
         </article>
 
-        <!-- Carta 8 -->
-        <article onclick="juegoMemoria.flipCard(this)">
+        <article tabindex="0" onclick="juegoMemoria.flipCard(this)" onkeydown="if(event.key==='Enter'||event.key===' ')juegoMemoria.flipCard(this)">
             <h3>Memory Card</h3>
-            <img src="multimedia/logos/ktm.svg" alt="Logo-KTM" />
+            <img src="multimedia/logos/ktm.svg" alt="Logo KTM" />
         </article>
 
-        <!-- Carta 9 -->
-        <article onclick="juegoMemoria.flipCard(this)">
+        <article tabindex="0" onclick="juegoMemoria.flipCard(this)" onkeydown="if(event.key==='Enter'||event.key===' ')juegoMemoria.flipCard(this)">
             <h3>Memory Card</h3>
-            <img src="multimedia/logos/aprilia.svg" alt="Logo-Aprilia" />
+            <img src="multimedia/logos/aprilia.svg" alt="Logo Aprilia" />
         </article>
 
-        <!-- Carta 10 -->
-        <article onclick="juegoMemoria.flipCard(this)">
+        <article tabindex="0" onclick="juegoMemoria.flipCard(this)" onkeydown="if(event.key==='Enter'||event.key===' ')juegoMemoria.flipCard(this)">
             <h3>Memory Card</h3>
-            <img src="multimedia/logos/aprilia.svg" alt="Logo-Aprilia" />
+            <img src="multimedia/logos/aprilia.svg" alt="Logo Aprilia" />
         </article>
 
-        <!-- Carta 11 -->
-        <article onclick="juegoMemoria.flipCard(this)">
+        <article tabindex="0" onclick="juegoMemoria.flipCard(this)" onkeydown="if(event.key==='Enter'||event.key===' ')juegoMemoria.flipCard(this)">
             <h3>Memory Card</h3>
-            <img src="multimedia/logos/motogp.svg" alt="Logo-MotoGP" />
+            <img src="multimedia/logos/motogp.svg" alt="Logo MotoGP" />
         </article>
 
-        <!-- Carta 12 -->
-        <article onclick="juegoMemoria.flipCard(this)">
+        <article tabindex="0" onclick="juegoMemoria.flipCard(this)" onkeydown="if(event.key==='Enter'||event.key===' ')juegoMemoria.flipCard(this)">
             <h3>Memory Card</h3>
-            <img src="multimedia/logos/motogp.svg" alt="Logo-MotoGP" />
+            <img src="multimedia/logos/motogp.svg" alt="Logo MotoGP" />
         </article>
     </main>
-
-    
 </body>
 </html>
-
