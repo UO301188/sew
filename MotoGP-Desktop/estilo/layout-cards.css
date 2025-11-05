@@ -42,7 +42,7 @@ main > h2 {
 
 /* Estilo para el párrafo del cronómetro */
 /* especificidad: 011 */
-/* Ahora se selecciona por rol="timer" en el HTML para evitar selector id */
+
 main > p[role="timer"] {
     grid-column: 1 / -1;   /* Ocupa todas las columnas del grid */
     text-align: center;    /* Centra el texto */

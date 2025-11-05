@@ -93,3 +93,53 @@ header + p {
     }
 }
 
+/* Tabla adaptable: en móviles la tabla se muestra como tarjetas apiladas */
+@media (max-width: 600px) {
+    body[data-page="piloto"] table {
+        display: block;
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0;
+    }
+
+    body[data-page="piloto"] thead {
+        display: none; /* ocultar cabecera en móvil */
+    }
+
+    body[data-page="piloto"] tbody {
+        display: block;
+    }
+
+    body[data-page="piloto"] tbody tr {
+        display: grid;
+        grid-template-columns: 35% 65%; /* etiqueta / valor */
+        gap: 0.5rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #e6e6e6;
+        align-items: start;
+    }
+
+    body[data-page="piloto"] tbody tr td,
+    body[data-page="piloto"] tbody tr th {
+        display: block;
+        padding: 0;
+        margin: 0;
+        white-space: normal;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+    }
+
+    /* Añadir la "etiqueta" antes del valor usando nth-child (coincide con el orden de columnas) */
+    body[data-page="piloto"] tbody tr td:nth-child(1)::before { content: "Puntos: "; font-weight: 700; display: inline-block; }
+    body[data-page="piloto"] tbody tr td:nth-child(2)::before { content: "Clasificación: "; font-weight: 700; display: inline-block; }
+    body[data-page="piloto"] tbody tr td:nth-child(3)::before { content: "Victorias: "; font-weight: 700; display: inline-block; }
+    body[data-page="piloto"] tbody tr td:nth-child(4)::before { content: "Poles: "; font-weight: 700; display: inline-block; }
+    body[data-page="piloto"] tbody tr td:nth-child(5)::before { content: "Podios: "; font-weight: 700; display: inline-block; }
+
+    /* Asegurar que nada provoque overflow horizontal */
+    html, body, main {
+        overflow-x: hidden;
+        min-width: 0;
+    }
+}
+
