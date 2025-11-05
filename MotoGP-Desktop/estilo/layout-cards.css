@@ -7,7 +7,7 @@ main {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: auto; 
-    gap: 1em; /* más ajustado */
+    gap: 1em; 
     padding: 1em;
 }
 
@@ -42,12 +42,13 @@ main > h2 {
 
 /* Estilo para el párrafo del cronómetro */
 /* especificidad: 011 */
-main #cronometro {
+/* Ahora se selecciona por rol="timer" en el HTML para evitar selector id */
+main > p[role="timer"] {
     grid-column: 1 / -1;   /* Ocupa todas las columnas del grid */
     text-align: center;    /* Centra el texto */
     font-size: 1.5em;      /* Tamaño similar al encabezado */
     font-weight: bold;     /* Resalta el cronómetro */
-    margin-bottom: 0;    /* Separación respecto a las cartas */
+    margin-bottom: 0;      /* Separación respecto a las cartas */
 }
 
 

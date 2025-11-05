@@ -38,13 +38,13 @@
         </nav>
     </header>
 
-    <p class="migas-navegacion">
+    <p>
         Estás en: <a href="index.html">Inicio</a> &gt;&gt; <a href="juegos.html">Juegos</a> &gt;&gt; <strong>Memoria</strong>
     </p>
 
     <main>
         <h2>Juego de memoria con cartas</h2>
-        <p id="cronometro">00:00.0</p>
+        <p id="cronometro" role="timer">00:00.0</p>
 
         <!-- Cartas -->
         <article tabindex="0" onclick="juegoMemoria.flipCard(this)" onkeydown="if(event.key==='Enter'||event.key===' ')juegoMemoria.flipCard(this)">

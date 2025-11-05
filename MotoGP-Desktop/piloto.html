@@ -15,7 +15,7 @@
     <link rel="icon" href="multimedia/favicon.ico" type="image/x-icon" />
 </head>
 
-<body class="piloto-page">
+<body>
     <!-- Datos con el contenidos que aparece en el navegador -->
     <header> 
         <h1>
@@ -23,7 +23,7 @@
         </h1>
         <nav>
             <a href="index.html" title="MotoGP">Inicio</a>
-            <a href="piloto.html" title="MotoGP-Piloto" class="active">Piloto</a>
+            <a href="piloto.html" title="MotoGP-Piloto" aria-current="page">Piloto</a>
             <a href="circuito.html" title="MotoGP-Circuito">Circuito</a>
             <a href="meteorologia.html" title="MotoGP-Meteorologia">Meteorologia</a>
             <a href="clasificaciones.html" title="MotoGP-Clasificaciones">Clasificaciones</a>
@@ -32,7 +32,7 @@
         </nav>
     </header>
     
-    <p class="migas-navegacion">Estás en: <a href="index.html">Inicio</a> &gt;&gt; <strong>Piloto</strong></p>
+    <p>Estás en: <a href="index.html">Inicio</a> &gt;&gt; <strong>Piloto</strong></p>
     
     <main>
         <section>
@@ -70,7 +70,7 @@
                 <source srcset="multimedia/piloto-monitor.jpg"  media="(min-width: 800px)">
                 <img src="multimedia/piloto-monitor.jpg" alt="Foto del piloto">
             </picture>
-            <video controls style="width: 50%; max-width: 400px;">
+            <video controls>
                 <source src="multimedia/somkiat-video-webm.webm" type="video/webm">
                 <source src="multimedia/somkiat-video-mp4.mp4" type="video/mp4">
             </video>

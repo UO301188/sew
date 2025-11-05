@@ -49,9 +49,11 @@ header nav a {
     transition: background 0.2s, color 0.2s;
 }
 
-/* Enlace activo en el menú de navegación */
+
+
+/* Enlace activo en el menú de navegación (usar aria-current="page" en el HTML) */
 /* Selector Specificity: (0, 1, 3) */
-header nav a.active {
+header nav a[aria-current="page"] {
     color: #ffffff !important;
     background-color: #001a33 !important; /* un tono aún más oscuro para destacar */
     font-weight: bold;
