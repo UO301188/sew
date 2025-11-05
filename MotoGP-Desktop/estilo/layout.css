@@ -93,24 +93,24 @@ header + p {
     }
 }
 
-/* Tabla adaptable: en móviles la tabla se muestra como tarjetas apiladas */
+/* Tabla adaptable: en móviles la tabla se muestra como tarjetas apiladas (aplica a todas las tablas) */
 @media (max-width: 600px) {
-    body[data-page="piloto"] table {
+    table {
         display: block;
         width: 100%;
         border-collapse: collapse;
         margin: 0;
     }
 
-    body[data-page="piloto"] thead {
+    thead {
         display: none; /* ocultar cabecera en móvil */
     }
 
-    body[data-page="piloto"] tbody {
+    tbody {
         display: block;
     }
 
-    body[data-page="piloto"] tbody tr {
+    tbody tr {
         display: grid;
         grid-template-columns: 35% 65%; /* etiqueta / valor */
         gap: 0.5rem;
@@ -119,8 +119,8 @@ header + p {
         align-items: start;
     }
 
-    body[data-page="piloto"] tbody tr td,
-    body[data-page="piloto"] tbody tr th {
+    tbody tr td,
+    tbody tr th {
         display: block;
         padding: 0;
         margin: 0;
@@ -129,12 +129,12 @@ header + p {
         overflow-wrap: anywhere;
     }
 
-    /* Añadir la "etiqueta" antes del valor usando nth-child (coincide con el orden de columnas) */
-    body[data-page="piloto"] tbody tr td:nth-child(1)::before { content: "Puntos: "; font-weight: 700; display: inline-block; }
-    body[data-page="piloto"] tbody tr td:nth-child(2)::before { content: "Clasificación: "; font-weight: 700; display: inline-block; }
-    body[data-page="piloto"] tbody tr td:nth-child(3)::before { content: "Victorias: "; font-weight: 700; display: inline-block; }
-    body[data-page="piloto"] tbody tr td:nth-child(4)::before { content: "Poles: "; font-weight: 700; display: inline-block; }
-    body[data-page="piloto"] tbody tr td:nth-child(5)::before { content: "Podios: "; font-weight: 700; display: inline-block; }
+    /* Etiquetas genéricas antes del valor (ajusta si quieres textos concretos) */
+    tbody tr td:nth-child(1)::before { content: "Campo 1: "; font-weight: 700; display: inline-block; }
+    tbody tr td:nth-child(2)::before { content: "Campo 2: "; font-weight: 700; display: inline-block; }
+    tbody tr td:nth-child(3)::before { content: "Campo 3: "; font-weight: 700; display: inline-block; }
+    tbody tr td:nth-child(4)::before { content: "Campo 4: "; font-weight: 700; display: inline-block; }
+    tbody tr td:nth-child(5)::before { content: "Campo 5: "; font-weight: 700; display: inline-block; }
 
     /* Asegurar que nada provoque overflow horizontal */
     html, body, main {
