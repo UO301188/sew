@@ -56,6 +56,7 @@ class Memoria{
         }
 
         // Reinsertamos las cartas en el nuevo orden, después del párrafo del cronómetro
+        // Revisar
         const parrafoCronometro = main.querySelector("#cronometro");
         cartas.forEach(carta => parrafoCronometro.insertAdjacentElement("afterend", carta));
 
