@@ -1,34 +1,23 @@
-class Ciudad{
-    nombre;
-    pais;
-    gentilicio;
-    cantidadPoblacion;
-    coordenadas;
+"use strict";
 
-    constructor(nombre, pais, gentilicio){
+class Ciudad {
+    constructor(nombre, pais, gentilicio) {
         this.nombre = nombre;
         this.pais = pais;
         this.gentilicio = gentilicio;
+        this.cantidadPoblacion = 0;
+        this.coordenadas = { latitud: 0, longitud: 0 };
     }
 
-    fillAtributes(){
+    fillAtributes() {
         this.cantidadPoblacion = 7164;
-        this.coordenadas = {
-            latitud: 43.9936,
-            longitud: 11.3542
-        };
+        this.coordenadas = { latitud: 43.9936, longitud: 11.3542 };
     }
 
-    getNombreCiudad(){
-        return this.nombre;
-    }
-    
-    getPais(){
-        return this.pais;
-    }
+    getNombreCiudad() { return this.nombre; }
+    getPais() { return this.pais; }
 
     getInfoSecundaria() {
-        // Devuelve HTML con la información secundaria (no escribe en el documento)
         return `
         <section aria-label="Información secundaria">
             <h3>Información secundaria</h3>
@@ -36,12 +25,10 @@ class Ciudad{
                 <li>Gentilicio: ${this.gentilicio}</li>
                 <li>Población: ${this.cantidadPoblacion.toLocaleString()}</li>
             </ul>
-        </section>
-        `;
+        </section>`;
     }
 
     getCoordenadasHTML() {
-        // Devuelve HTML con las coordenadas (sustituye el anterior document.write)
         return `
         <section aria-label="Coordenadas">
             <p>Coordenadas de ${this.nombre}:</p>
@@ -49,7 +36,25 @@ class Ciudad{
                 <li>Latitud: ${this.coordenadas.latitud}</li>
                 <li>Longitud: ${this.coordenadas.longitud}</li>
             </ul>
-        </section>
-        `;
+        </section>`;
     }
 }
+
+/* --- Instanciación y manipulación del DOM --- */
+window.addEventListener("DOMContentLoaded", () => {
+    const scarperia = new Ciudad("Scarperia", "Italia", "scarperiense");
+    scarperia.fillAtributes();
+
+    const mainEl = document.querySelector("main");
+
+    const cityH2 = document.createElement("h2");
+    cityH2.textContent = `Ciudad: ${scarperia.getNombreCiudad()}`;
+    mainEl.appendChild(cityH2);
+
+    const paisP = document.createElement("p");
+    paisP.textContent = `País: ${scarperia.getPais()}`;
+    mainEl.appendChild(paisP);
+
+    mainEl.insertAdjacentHTML("beforeend", scarperia.getInfoSecundaria());
+    mainEl.insertAdjacentHTML("beforeend", scarperia.getCoordenadasHTML());
+});
