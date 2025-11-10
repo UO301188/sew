@@ -41,7 +41,7 @@ class Ciudad {
 }
 
 /* --- Instanciación y manipulación del DOM --- */
-console.log("✅ ciudad.js cargado correctamente");
+
 
 window.addEventListener("DOMContentLoaded", () => {
     const scarperia = new Ciudad("Scarperia", "Italia", "scarperiense");
