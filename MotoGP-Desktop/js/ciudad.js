@@ -40,7 +40,6 @@ class Ciudad {
     }
 }
 
-/* --- Instanciación y manipulación del DOM --- */
 
 
 window.addEventListener("DOMContentLoaded", () => {
