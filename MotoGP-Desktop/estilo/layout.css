@@ -1,7 +1,11 @@
 /* Adrián Pérez Menéndez UO301188 */
-/* Estilos del layout (reglas que afecten unicamente a los posicionamientos) del proyecto MotoGP-Desktop*/
+/* Estilos del layout (reglas que afecten únicamente a los posicionamientos)
+   del proyecto MotoGP-Desktop */
 
+/* ================================================================ */
 /* ===== ESQUEMA FLEXBOX PARA EL HEADER ===== */
+/* Selector specificity: (0,0,1) */
+/* ================================================================ */
 
 /* Contenedor principal del header con Flexbox */
 header {
@@ -12,16 +16,22 @@ header {
     gap: 1rem;
 }
 
-/* Para pantallas más grandes, cambiamos a disposición horizontal */
-/* Redefinición intencional de flex-direction y justify-content (layout responsivo) */
+/* ================================================================ */
+/* Flexbox en pantallas grandes */
+/* Redefinición intencional: flex-direction, justify-content */
+/* Selector specificity: (0,0,1) */
+/* ================================================================ */
 @media (min-width: 768px) {
     header {
-        flex-direction: row;
-        justify-content: space-between;
+        flex-direction: row;       /* redefinición flex-direction */
+        justify-content: space-between; /* redefinición justify-content */
     }
 }
 
+/* ================================================================ */
 /* ===== ESQUEMA FLEXBOX PARA LA NAVEGACIÓN ===== */
+/* Selector specificity: (0,0,2) */
+/* ================================================================ */
 
 /* Contenedor de navegación con Flexbox */
 header nav {
@@ -34,66 +44,96 @@ header nav {
 /* Redefinición intencional de justify-content */
 @media (min-width: 768px) {
     header nav {
-        justify-content: flex-end;
+        justify-content: flex-end; /* redefinición justify-content */
     }
 }
 
-/* ===== ESQUEMA FLEXBOX PARA EL CONTENIDO PRINCIPAL ===== */
-
-/* Estructura básica del contenido principal */
+/* ================================================================ */
+/* ===== FLEXBOX PARA EL CONTENIDO PRINCIPAL ===== */
+/* Selector specificity: (0,0,1) */
+/* ================================================================ */
 main {
     display: flex;
     flex-direction: column;
     padding: 1rem;
 }
 
-/* ===== MIGAS DE PAN ===== */
 
-/* Estilo para las migas de navegación (se aplica al párrafo justo después del header) */
-/* Selector Specificity: (0,0,2) */
+
+
+/* ================================================================ */
+/* ===== MIGAS DE PAN ===== */
+/* Selector específico (header + p) specificity: (0,0,2) */
+/* ================================================================ */
 header + p {
     padding: 0.5rem 1rem;
     background-color: #f5f5f5;
     border-bottom: 1px solid #ddd;
-    color: #333; /* Añadido: color de primer plano para contraste */
+    color: #333; /* advertencia permitida de color */
 }
 
-/* 
-   En pantallas pequeñas (móviles), reorganizamos el layout 
-   y garantizamos la adaptabilidad de todos los contenidos.
-*/
+
+/* ================================================================ */
+/* ===== ADAPTABILIDAD PARA MÓVILES (Ejercicio 6) ===== */
+
+/* ================================================================ */
 
 @media (min-width: 320px) and (max-width: 799px) {
 
-    /* Redefinición intencional de flex-direction y justify-content */
+    /* Redefinición intencional de flex-direction y align-items */
+    /* Selector specificity: (0,0,1) */
     header {
-        flex-direction: column; /* los elementos del header se apilan en vertical */
-        align-items: center;
+        flex-direction: column;  /* redefinición flex-direction */
+        align-items: center;     /* redefinición align-items */
     }
 
-    /* Redefinición intencional del flex de los enlaces del nav */
+    /* Redefinición intencional del flexbox del nav */
+    /* Selector specificity: (0,0,2) */
     header nav {
-        flex-direction: column; /* los enlaces del menú se apilan */
-        align-items: center;
+        flex-direction: column; /* redefinición flex-direction */
+        align-items: center;    /* redefinición align-items */
     }
 
-    /* Ocultar las migas de navegación en móviles */
+    /* Migas ocultas únicamente en móvil */
+    /* Selector specificity: (0,0,2) */
     header + p {
         display: none;
     }
 
-    /* Adaptar los elementos multimedia */
+    /* Multimedia adaptable */
+    /* Selector specificity: (0,0,1) */
     video {
-        width: 100%;
-        height: auto;
+        width: 100%;   /* redefinición width */
+        height: auto;  /* redefinición height */
     }
 
     audio {
+        width: 100%;   /* redefinición width */
+    }
+
+    /* =========================================================== */
+    /* Selector specificity: (0,0,1) */
+    /* =========================================================== */
+    table,
+    thead,
+    tbody,
+    tr,
+    th,
+    td {
+        display: block;
         width: 100%;
     }
 
+    /* Oculta encabezados en móvil */
+    thead {
+        display: none;
+    }
+
+    /* Cada celda se muestra como un bloque */
+    td {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #ddd;
+    }
 }
-
-
 
 

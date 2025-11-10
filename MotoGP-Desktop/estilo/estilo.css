@@ -14,6 +14,8 @@ header {
     color: #000000; 
 }
 
+
+
 /* Todos los enlaces dentro del header sin subrayado por defecto */
 /* Selector Specificity: (0, 0, 2) */
 header a {
@@ -82,5 +84,4 @@ header + p strong {
     color: #000000;
     background-color: transparent; /* añadido para validador */
 }
-
 
