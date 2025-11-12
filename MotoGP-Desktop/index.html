@@ -27,8 +27,15 @@
         </nav>
     </header>
     <main>
-        <p>en desarrollo</p>
-    </main>
+    <div id="resultado"></div>
+
+    <script>
+        $(document).ready(function() {
+            const carrusel = new Carrusel("Circuito de Mugello"); 
+            carrusel.getFotografias().then(() => carrusel.mostrarFotografias());
+        });
+    </script>
+</main>
 </body>
 </html>
 

@@ -134,6 +134,15 @@ header + p {
         padding: 0.5rem 0;
         border-bottom: 1px solid #ddd;
     }
+
+    article h2 + img {
+    width: 100%;        /* La imagen ocupa todo el ancho del contenedor */
+    height: auto;       /* Mantiene la proporción de la imagen */
+    display: block;     /* Evita espacios debajo de la imagen */
+    margin: 0 auto;     /* Centra la imagen si es necesario */
+    border-radius: 0.5rem; /* Opcional: bordes ligeramente redondeados */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2); /* Opcional: sombra suave */
+}
 }
 
 

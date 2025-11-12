@@ -1,70 +1,66 @@
-"use strict";
-
 class Carrusel {
     constructor(busqueda) {
         this.busqueda = busqueda;
         this.actual = 0;
-        this.maximo = 4;
+        this.maximo = 5; // cantidad de fotos
         this.fotos = [];
+        this.intervalo = null; // para guardar el setInterval
     }
 
     getFotografias() {
-        const apiKey = "TU_API_KEY_AQUI"; // Sustituir por tu clave
-        const url = "https://www.flickr.com/services/rest/?method=flickr.photos.search"
-            + "&api_key=" + apiKey
-            + "&text=" + encodeURIComponent(this.busqueda)
-            + "&per_page=5"
-            + "&format=json"
-            + "&nojsoncallback=1";
+        const url = `https://www.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=?&tags=${this.busqueda}`;
 
-        $.ajax({
+        return $.ajax({
             url: url,
-            dataType: "json",
-            success: (datos) => this.procesarJSONFotografias(datos),
-            error: function() {
-                console.error("Error al obtener las fotografías del circuito");
-            }
+            dataType: "jsonp"
+        }).then(response => {
+            this.fotos = response.items.slice(0, 5).map(item => {
+                const urlOriginal = item.media.m;
+                const url640 = urlOriginal.replace("_m.jpg", "_z.jpg");
+                return {
+                    title: item.title,
+                    author: item.author,
+                    link: item.link,
+                    url: url640
+                };
+            });
+        }).catch(error => {
+            console.error("Error al obtener imágenes:", error);
         });
     }
 
-    procesarJSONFotografias(datos) {
-        if (datos.stat === "ok") {
-            const fotos = datos.photos.photo;
-            this.fotos = fotos.slice(0, 5).map(foto =>
-                `https://live.staticflickr.com/${foto.server}/${foto.id}_${foto.secret}_z.jpg`
-            );
-            this.mostrarFotografias();
-        } else {
-            console.error("Error en la respuesta JSON de Flickr");
-        }
-    }
-
     mostrarFotografias() {
-        const main = $("main");
-        main.empty();
+        if (this.fotos.length === 0) {
+            $("#resultado").html("<p>No hay imágenes para mostrar.</p>");
+            return;
+        }
 
-        const article = $("<article></article>");
-        const titulo = $("<h2></h2>").text(`Imágenes del circuito de ${this.busqueda}`);
-        const imagen = $("<img>").attr("src", this.fotos[this.actual])
-                                 .attr("alt", `Foto ${this.actual + 1} del circuito`);
+        // Crear el artículo
+        const articulo = $("<article></article>");
+        const encabezado = $(`<h2>Imágenes del ${this.busqueda}</h2>`);
 
-        article.append(titulo);
-        article.append(imagen);
-        main.append(article);
+        // Crear la imagen inicial
+        const imagen = $("<img>")
+            .attr("src", this.fotos[this.actual].url)
+            .attr("alt", this.fotos[this.actual].title)
+            .attr("id", "carrusel-img"); // id para referenciarla después
 
-        // Cambia cada 3 segundos
-        setInterval(this.cambiarFotografia.bind(this), 3000);
+        articulo.append(encabezado);
+        articulo.append(imagen);
+
+        $("#resultado").html(articulo);
+
+        // Iniciar el cambio de fotos cada 3 segundos
+        this.intervalo = setInterval(this.cambiarFotografia.bind(this), 3000);
     }
 
     cambiarFotografia() {
-        this.actual = (this.actual + 1) % this.fotos.length;
-        $("main img").attr("src", this.fotos[this.actual]);
+        // Avanzar al siguiente índice
+        this.actual = (this.actual + 1) % this.maximo;
+
+        // Actualizar la imagen en el DOM
+        $("#carrusel-img")
+            .attr("src", this.fotos[this.actual].url)
+            .attr("alt", this.fotos[this.actual].title);
     }
 }
-
-// Ejemplo de uso al cargar la página
-$(document).ready(function() {
-    const carruselMugello = new Carrusel("Circuito de Mugello");
-    carruselMugello.getFotografias();
-});
-
