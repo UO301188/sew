@@ -130,7 +130,7 @@ header + p {
         width: 100%;
     }
 
-    /* Oculta encabezados en móvil */
+    /* Oculta encabezados en móvil. Redefinicion */
     thead {
         display: none;
     }

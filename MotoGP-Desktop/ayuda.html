@@ -39,7 +39,13 @@
             <p>
                 La sección de inicio ofrece una presentación general del proyecto MotoGP-Desktop,
                 incluyendo enlaces rápidos a las distintas secciones del sitio. Desde aquí puedes acceder
-                fácilmente a la información de pilotos, circuitos, clasificaciones y juegos.
+                fácilmente a la información de pilotos, circuitos, clasificaciones, juegos y noticias.
+            </p>
+            <p>
+                En la página de inicio también se muestran las últimas noticias sobre MotoGP obtenidas mediante la API TheNewsAPI.
+                Los titulares, imágenes, resúmenes y enlaces completos se cargan dinámicamente con JavaScript.
+                La visualización es responsiva, de manera que las imágenes se redimensionan correctamente en dispositivos móviles,
+                evitando el scroll horizontal.
             </p>
         </section>
 
@@ -65,8 +71,10 @@
             <h3>Meteorología</h3>
             <p>
                 Esta sección muestra el estado del tiempo en Scarperia, sede del circuito de Mugello.
-                Se obtienen los datos meteorológicos en tiempo real mediante una API, incluyendo
-                temperatura, humedad, velocidad del viento y condiciones actuales.
+                Se obtienen los datos meteorológicos en tiempo real mediante la API Open-Meteo, incluyendo
+                temperatura, sensación térmica, lluvia, humedad, velocidad y dirección del viento, así como
+                horas de salida y puesta del sol. La información se presenta de forma dinámica usando jQuery,
+                y las imágenes y gráficos se ajustan automáticamente en dispositivos móviles para evitar scroll lateral.
             </p>
         </section>
 
@@ -92,13 +100,11 @@
             <h3>Ayuda</h3>
             <p>
                 En esta página se explica la estructura y funcionamiento del sitio web MotoGP-Desktop.
-                Si tienes dudas sobre cómo navegar o usar sus secciones, consulta cada uno de los apartados
-                anteriores. El objetivo es ofrecer una experiencia educativa, práctica e interactiva con
-                contenidos relacionados con MotoGP.
+                Incluye detalles sobre la navegación, el uso de las secciones de meteorología y noticias,
+                y la adaptabilidad del diseño para distintos dispositivos. El objetivo es ofrecer una experiencia
+                educativa, práctica e interactiva con contenidos relacionados con MotoGP.
             </p>
         </section>
     </main>
 </body>
 </html>
-
-
