@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css"  />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
     <link rel="icon" href="multimedia/favicon-48px.ico" type="image/x-icon" />
+    <script src="js/circuito.js"></script>
 </head>
 
 <body>
@@ -35,6 +36,13 @@
     <main>
         <p>en desarrollo </p>
         <h2>Circuitos de MotoGP-Desktop</h2>
+
+            <!-- Input para seleccionar el archivo InfoCircuito.html -->
+            <label for="fileInput">Cargar InfoCircuito.html:</label>
+            <input id="fileInput" type="file" accept=".html,text/html" />
+            <!-- Contenedor donde se mostrará el contenido del archivo -->
+            <div id="contenidoCircuito" aria-live="polite"></div>
+
     </main>
     <footer>
         <p>&copy; 2025 MotoGP Desktop | Adrián Pérez Menéndez</p>
