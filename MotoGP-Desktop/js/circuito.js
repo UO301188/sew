@@ -3,7 +3,7 @@ class Circuito {
         // No asumimos que el DOM está listo cuando se crea la instancia desde fuera.
         this.comprobarApiFile();
         this.leerArchivoHTML();
-        this.cargarDesdeRutaRelativa();
+        
     }
 
     comprobarApiFile() {
