@@ -1,139 +1,64 @@
 #!/usr/bin/env python3
-import xml.etree.ElementTree as ET
+# -*- coding: utf-8 -*-
+
+from lxml import etree
+from pathlib import Path
 
 class Html:
     def __init__(self):
         self.content = []
-
-    def add(self, text):
-        self.content.append(text)
-
-    def header(self, title):
-        self.add('<!DOCTYPE html>')
-        self.add('<html lang="es">')
-        self.add('<head>')
-        self.add('<meta charset="UTF-8">')
-        self.add('<meta name="viewport" content="width=device-width, initial-scale=1.0">')
-        self.add(f'<title>{title}</title>')
-        self.add('estilo.css')
-        self.add('</head>')
-        self.add('<body>')
-
+    def header(self):
+        self.content.append('<!DOCTYPE html>')
+        self.content.append('<html lang="es">')
+        self.content.append('<head>')
+        self.content.append('<meta charset="UTF-8">')
+        self.content.append('<meta name="viewport" content="width=device-width, initial-scale=1.0">')
+        self.content.append('<title>Información del Circuito</title>')
+        self.content.append('<link rel="stylesheet" type="text/css" href="estilo/estilo.css"  />')
+        self.content.append('</head><body>')
     def footer(self):
-        self.add('</body>')
-        self.add('</html>')
-
-    def h1(self, text):
-        self.add(f'<h1>{text}</h1>')
-
-    def p(self, text):
-        self.add(f'<p>{text}</p>')
-
-    def ul_start(self):
-        self.add('<ul>')
-
-    def ul_end(self):
-        self.add('</ul>')
-
-    def li(self, text):
-        self.add(f'<li>{text}</li>')
-
-    def img(self, src, alt):
-        self.add(f'{src}')
-
-    def video(self, src, alt):
-        self.add(f'<video controls style="max-width:100%;height:auto;">')
-        self.add(f'{src}')
-        self.add(f'{alt}')
-        self.add('</video>')
-
+        self.content.append('</body></html>')
+    def section(self, title, items):
+        self.content.append(f'<section><h2>{title}</h2>')
+        for item in items:
+            self.content.append(f'<p>{item}</p>')
+        self.content.append('</section>')
     def save(self, filename):
-        with open(filename, 'w', encoding='utf-8') as f:
-            f.write('\n'.join(self.content))
+        Path(filename).write_text("\n".join(self.content), encoding="utf-8")
 
-# Parsear circuitoEsquema.xml
-ns = {'ns': 'http://www.uniovi.es'}
-tree = ET.parse('circuitoEsquema.xml')
-root = tree.getroot()
+INPUT = Path("circuitoEsquema.xml")
+OUTPUT = Path("InfoCircuito.html")
 
-# Extraer datos generales usando XPath
-nombre = root.findtext('.//ns:nombre', namespaces=ns)
-longitud = root.findtext('.//ns:longitud', namespaces=ns)
-anchura = root.findtext('.//ns:anchura', namespaces=ns)
-fecha = root.findtext('.//ns:fecha', namespaces=ns)
-hora = root.findtext('.//ns:hora', namespaces=ns)
-numVueltas = root.findtext('.//ns:numVueltas', namespaces=ns)
-localidad = root.findtext('.//ns:localidad', namespaces=ns)
-pais = root.findtext('.//ns:pais', namespaces=ns)
-patrocinador = root.findtext('.//ns:patrocinador', namespaces=ns)
+tree = etree.parse(str(INPUT))
+ns = {"ns": "http://www.uniovi.es"}
 
-# Referencias
+nombre = tree.xpath('string(//ns:nombre)', namespaces=ns)
+longitud = tree.xpath('string(//ns:longitud)', namespaces=ns)
+anchura = tree.xpath('string(//ns:anchura)', namespaces=ns)
+fecha = tree.xpath('string(//ns:fecha)', namespaces=ns)
+hora = tree.xpath('string(//ns:hora)', namespaces=ns)
+localidad = tree.xpath('string(//ns:localidad)', namespaces=ns)
+pais = tree.xpath('string(//ns:pais)', namespaces=ns)
+patrocinador = tree.xpath('string(//ns:patrocinador)', namespaces=ns)
+
 referencias = []
-for ref in root.findall('.//ns:referencias/ns:referencia', namespaces=ns):
+for ref in tree.xpath('//ns:referencia', namespaces=ns):
+    titulo = ref.xpath('string(ns:titulo)', namespaces=ns)
     url = ref.get('url')
-    titulo = ref.findtext('ns:titulo', namespaces=ns)
-    autor = ref.findtext('ns:autor', namespaces=ns)
-    anio = ref.findtext('ns:año', namespaces=ns)
-    referencias.append((titulo, autor, anio, url))
+    referencias.append(f'{url}{titulo}</a>')
 
-# Galería fotos
-fotos = []
-for foto in root.findall('.//ns:galeriaFotos/ns:foto', namespaces=ns):
-    src = foto.get('src')
-    alt = foto.get('alt')
-    fotos.append((src, alt))
-
-# Galería videos
-videos = []
-for video in root.findall('.//ns:galeriaVideos/ns:video', namespaces=ns):
-    src = video.get('src')
-    alt = video.get('alt')
-    videos.append((src, alt))
-
-# Vencedor y clasificación
-vencedor = root.findtext('.//ns:vencedor/ns:nombreVencedor', namespaces=ns)
-duracion = root.findtext('.//ns:vencedor/ns:duracion', namespaces=ns)
 clasificacion = []
-for puesto in root.findall('.//ns:clasificacion/ns:puesto', namespaces=ns):
+for puesto in tree.xpath('//ns:clasificacion/ns:puesto', namespaces=ns):
     pos = puesto.get('pos')
-    piloto = puesto.findtext('ns:piloto', namespaces=ns)
-    puntos = puesto.findtext('ns:puntos', namespaces=ns)
-    clasificacion.append((pos, piloto, puntos))
+    piloto = puesto.xpath('string(ns:piloto)', namespaces=ns)
+    puntos = puesto.xpath('string(ns:puntos)', namespaces=ns)
+    clasificacion.append(f'{pos}. {piloto} - {puntos} puntos')
 
-# Generar HTML
 html = Html()
-html.header('Información del Circuito')
-html.h1(nombre)
-html.p(f"Longitud: {longitud} m | Anchura: {anchura} m")
-html.p(f"Fecha: {fecha} | Hora: {hora}")
-html.p(f"Número de vueltas: {numVueltas}")
-html.p(f"Localidad: {localidad}, País: {pais}")
-html.p(f"Patrocinador: {patrocinador}")
-
-html.h1('Referencias')
-html.ul_start()
-for titulo, autor, anio, url in referencias:
-    html.li(f'{url}{titulo}</a> ({autor}, {anio})')
-html.ul_end()
-
-html.h1('Galería de Fotos')
-for src, alt in fotos:
-    html.img(src, alt)
-
-html.h1('Galería de Videos')
-for src, alt in videos:
-    html.video(src, alt)
-
-html.h1('Vencedor')
-html.p(f"{vencedor} - Duración: {duracion}")
-
-html.h1('Clasificación')
-html.ul_start()
-for pos, piloto, puntos in clasificacion:
-    html.li(f"Posición {pos}: {piloto} ({puntos} puntos)")
-html.ul_end()
-
+html.header()
+html.section('Datos del Circuito', [f'Nombre: {nombre}', f'Longitud: {longitud} m', f'Anchura: {anchura} m', f'Fecha: {fecha}', f'Hora: {hora}', f'Localidad: {localidad}', f'País: {pais}', f'Patrocinador: {patrocinador}'])
+html.section('Referencias', referencias)
+html.section('Clasificación', clasificacion)
 html.footer()
-html.save('InfoCircuito.html')
-
-print("Archivo InfoCircuito.html generado correctamente.")
+html.save(OUTPUT)
+print(f"Generado {OUTPUT}.")

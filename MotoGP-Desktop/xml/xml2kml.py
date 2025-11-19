@@ -1,60 +1,55 @@
 #!/usr/bin/env python3
-"""xml2kml.py
-Lee "circuitoEsquema.xml" (con espacio de nombres) y genera "circuito.kml".
-Usa expresiones XPath (con xml.etree.ElementTree) para obtener coordenadas.
-"""
+# -*- coding: utf-8 -*-
 
-import xml.etree.ElementTree as ET
+from lxml import etree
 from pathlib import Path
+
+class Kml:
+    def __init__(self):
+        self.content = []
+    def header(self):
+        self.content.append('<?xml version="1.0" encoding="UTF-8"?>')
+        self.content.append('<kml xmlns="http://www.opengis.net/kml/2.2">')
+        self.content.append('<Document>')
+    def footer(self):
+        self.content.append('</Document>')
+        self.content.append('</kml>')
+    def placemark(self, coords):
+        self.content.append('<Placemark>')
+        self.content.append('<name>Recorrido del circuito</name>')
+        self.content.append('<Style><LineStyle><width>4</width></LineStyle></Style>')
+        self.content.append('<LineString>')
+        self.content.append('<altitudeMode>absolute</altitudeMode>')
+        self.content.append('<coordinates>')
+        for lon, lat, alt in coords:
+            self.content.append(f'{lon},{lat},{alt}')
+        self.content.append('</coordinates>')
+        self.content.append('</LineString>')
+        self.content.append('</Placemark>')
+    def save(self, filename):
+        Path(filename).write_text("\n".join(self.content), encoding="utf-8")
 
 INPUT = Path("circuitoEsquema.xml")
 OUTPUT = Path("circuito.kml")
 
-def main():
-    if not INPUT.exists():
-        print(f"ERROR: {INPUT} no encontrado en el directorio actual.")
-        return
-    tree = ET.parse(INPUT)
-    root = tree.getroot()
-    ns = 'http://www.uniovi.es'
-    nsmap = {'ns': ns}
+tree = etree.parse(str(INPUT))
+ns = {"ns": "http://www.uniovi.es"}
 
-    origen_long = root.findtext('.//ns:origen/ns:longitudCoord', namespaces=nsmap)
-    origen_lat  = root.findtext('.//ns:origen/ns:latitudCoord', namespaces=nsmap)
-    origen_alt  = root.findtext('.//ns:origen/ns:altitudCoord', namespaces=nsmap)
+lon0 = float(tree.xpath('string(//ns:origen/ns:longitudCoord)', namespaces=ns))
+lat0 = float(tree.xpath('string(//ns:origen/ns:latitudCoord)', namespaces=ns))
+alt0 = float(tree.xpath('string(//ns:origen/ns:altitudCoord)', namespaces=ns))
 
-    coords = []
-    if origen_long and origen_lat:
-        coords.append((float(origen_long), float(origen_lat), float(origen_alt) if origen_alt else 0.0))
+coords = [(lon0, lat0, alt0)]
 
-    tramos = root.findall('.//ns:tramo', namespaces=nsmap)
-    for tramo in tramos:
-        longf = tramo.findtext('.//ns:puntoFinal/ns:longFinal', namespaces=nsmap)
-        latf  = tramo.findtext('.//ns:puntoFinal/ns:latFinal', namespaces=nsmap)
-        altf  = tramo.findtext('.//ns:puntoFinal/ns:altFinal', namespaces=nsmap)
-        if longf and latf:
-            coords.append((float(longf), float(latf), float(altf) if altf else 0.0))
+for pf in tree.xpath('//ns:tramo/ns:puntoFinal', namespaces=ns):
+    lon = float(pf.xpath('string(ns:longFinal)', namespaces=ns))
+    lat = float(pf.xpath('string(ns:latFinal)', namespaces=ns))
+    alt = float(pf.xpath('string(ns:altFinal)', namespaces=ns))
+    coords.append((lon, lat, alt))
 
-    kml_header = '<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2">\n<Document>\n    <name>circuito.kml</name>\n    <description>Planimetría generada desde circuitoEsquema.xml</description>\n'
-    placemark = ('    <Placemark>\n'
-                 '        <name>Recorrido del circuito</name>\n'
-                 '        <Style>\n'
-                 '            <LineStyle>\n'
-                 '                <width>4</width>\n'
-                 '            </LineStyle>\n'
-                 '        </Style>\n'
-                 '        <LineString>\n'
-                 '            <altitudeMode>absolute</altitudeMode>\n'
-                 '            <coordinates>\n')
-    coords_text = ''
-    for lon, lat, alt in coords:
-        coords_text += f'                {lon},{lat},{alt}\n'
-    placemark_close = '            </coordinates>\n        </LineString>\n    </Placemark>\n'
-    kml_footer = '</Document>\n</kml>\n'
-    kml = kml_header + placemark + coords_text + placemark_close + kml_footer
-
-    OUTPUT.write_text(kml, encoding='utf-8')
-    print(f'Generado {OUTPUT} con {len(coords)} coordenadas.')
-
-if __name__ == '__main__':
-    main()
+kml = Kml()
+kml.header()
+kml.placemark(coords)
+kml.footer()
+kml.save(OUTPUT)
+print(f"Generado {OUTPUT} con {len(coords)} puntos.")
