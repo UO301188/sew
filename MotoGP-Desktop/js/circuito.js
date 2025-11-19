@@ -73,16 +73,7 @@ class Circuito {
             contenedor.innerHTML += `<p>${el.textContent}</p>`;
         });
 
-        // Extraer imágenes y añadir con src/alt correctos
-        const imagenes = doc.querySelectorAll("img");
-        if (imagenes.length > 0) {
-            contenedor.innerHTML += "<h4>Galería de Fotos:</h4>";
-            imagenes.forEach(img => {
-                const src = img.getAttribute("src") || "";
-                const alt = img.getAttribute("alt") || "";
-                contenedor.innerHTML += `<img src="${src}" alt="${alt}" >`;
-            });
-        }
+        
     }
 }
 // ...existing code...
