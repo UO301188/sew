@@ -12,7 +12,7 @@ class Circuito {
         } else {
             const cont = document.getElementById("contenidoCircuito");
             if (cont) {
-                cont.innerHTML = "<p style='color:red;'>Tu navegador no soporta la API File de HTML5.</p>";
+                cont.innerHTML = "<p>Tu navegador no soporta la API File de HTML5.</p>";
             } else {
                 console.error("Tu navegador no soporta la API File de HTML5 y no existe #contenidoCircuito.");
             }
@@ -80,7 +80,7 @@ class Circuito {
             imagenes.forEach(img => {
                 const src = img.getAttribute("src") || "";
                 const alt = img.getAttribute("alt") || "";
-                contenedor.innerHTML += `<img src="${src}" alt="${alt}" style="max-width:100%;height:auto;margin:0.5em 0;">`;
+                contenedor.innerHTML += `<img src="${src}" alt="${alt}" >`;
             });
         }
     }
