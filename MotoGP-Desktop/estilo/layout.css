@@ -183,12 +183,18 @@ header+p {
 
     /* ================================================================ */
     /* ===== ADAPTABILIDAD DEL FOOTER ===== */
-    /* Selector specificity: (0,0,2) */
+    /* Selector specificity: (0,0,1) */
     /* ================================================================ */
+    footer {
+        /* Añade box-sizing para que el padding y el borde no rompan el layout */
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    /* Selector specificity: (0,0,2) */
     footer p {
-        /* Permite que las cadenas largas se rompan, esencial para nombres/copyright */
+        /* Solución para cadenas de texto largas (copyright/autor) */
         word-wrap: break-word;
-        /* redefinición  overflow-wrap*/
         overflow-wrap: break-word;
     }
 }
