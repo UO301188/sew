@@ -3,11 +3,35 @@
    del proyecto MotoGP-Desktop */
 
 /* ================================================================ */
-/* ===== ESQUEMA FLEXBOX PARA EL HEADER ===== */
-/* Selector specificity: (0,0,1) */
+/* ===== REGLAS GLOBALES DE ADAPTABILIDAD Y USABILIDAD ===== */
 /* ================================================================ */
 
-/* Contenedor principal del header con Flexbox */
+* {
+    box-sizing: border-box;
+}
+
+p,
+footer p,
+label {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+label {
+    display: block;
+    max-width: 100%;
+}
+
+input[type="file"] {
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* ================================================================ */
+/* ===== ESQUEMA FLEXBOX PARA EL HEADER ===== */
+/* ================================================================ */
+
 header {
     display: flex;
     flex-direction: column;
@@ -16,11 +40,6 @@ header {
     gap: 1rem;
 }
 
-/* ================================================================ */
-/* Flexbox en pantallas grandes */
-/* Redefinición intencional: flex-direction, justify-content */
-/* Selector specificity: (0,0,1) */
-/* ================================================================ */
 @media (min-width: 768px) {
     header {
         flex-direction: row;
@@ -32,10 +51,8 @@ header {
 
 /* ================================================================ */
 /* ===== ESQUEMA FLEXBOX PARA LA NAVEGACIÓN ===== */
-/* Selector specificity: (0,0,2) */
 /* ================================================================ */
 
-/* Contenedor de navegación con Flexbox */
 header nav {
     display: flex;
     flex-wrap: wrap;
@@ -43,7 +60,6 @@ header nav {
     gap: 0.5rem;
 }
 
-/* Redefinición intencional de justify-content */
 @media (min-width: 768px) {
     header nav {
         justify-content: flex-end;
@@ -52,40 +68,36 @@ header nav {
 }
 
 /* ================================================================ */
-/* ===== FLEXBOX PARA EL CONTENIDO PRINCIPAL ===== */
-/* Selector specificity: (0,0,1) */
+/* ===== FLEXBOX PARA EL CONTENIDO PRINCIPAL Y FOOTER ===== */
 /* ================================================================ */
+
 main {
     display: flex;
     flex-direction: column;
     padding: 1rem;
 }
 
-
-
+footer {
+    width: 100%;
+}
 
 /* ================================================================ */
 /* ===== MIGAS DE PAN ===== */
-/* Selector específico (header + p) specificity: (0,0,2) */
 /* ================================================================ */
+
 header+p {
     padding: 0.5rem 1rem;
     background-color: #f5f5f5;
     border-bottom: 1px solid #ddd;
     color: #333;
-    /* advertencia permitida de color */
 }
-
 
 /* ================================================================ */
 /* ===== ADAPTABILIDAD PARA MÓVILES (Ejercicio 6) ===== */
-
 /* ================================================================ */
 
 @media (min-width: 320px) and (max-width: 799px) {
 
-    /* Redefinición intencional de flex-direction y align-items */
-    /* Selector specificity: (0,0,1) */
     header {
         flex-direction: column;
         /* redefinición flex-direction */
@@ -93,8 +105,6 @@ header+p {
         /* redefinición align-items */
     }
 
-    /* Redefinición intencional del flexbox del nav */
-    /* Selector specificity: (0,0,2) */
     header nav {
         flex-direction: column;
         /* redefinición flex-direction */
@@ -102,14 +112,11 @@ header+p {
         /* redefinición align-items */
     }
 
-    /* Migas ocultas únicamente en móvil */
-    /* Selector specificity: (0,0,2) */
     header+p {
         display: none;
+        /* redefinición display */
     }
 
-    /* Multimedia adaptable */
-    /* Selector specificity: (0,0,1) */
     video {
         width: 100%;
         /* redefinición width */
@@ -128,9 +135,7 @@ header+p {
         display: block;
     }
 
-    /* =========================================================== */
-    /* Selector specificity: (0,0,1) */
-    /* =========================================================== */
+    /* Adaptación de tablas */
     table,
     thead,
     tbody,
@@ -138,15 +143,16 @@ header+p {
     th,
     td {
         display: block;
+        /* redefinición display */
         width: 100%;
+        /* redefinición width */
     }
 
-    /* Oculta encabezados en móvil. Redefinicion */
     thead {
         display: none;
+        /* redefinición display */
     }
 
-    /* Cada celda se muestra como un bloque */
     td {
         padding: 0.5rem 0;
         border-bottom: 1px solid #ddd;
@@ -154,47 +160,10 @@ header+p {
 
     article h2+img {
         width: 100%;
-        /* La imagen ocupa todo el ancho del contenedor */
         height: auto;
-        /* Mantiene la proporción de la imagen */
         display: block;
-        /* Evita espacios debajo de la imagen */
         margin: 0 auto;
-        /* Centra la imagen si es necesario */
         border-radius: 0.5rem;
-        /* Opcional: bordes ligeramente redondeados */
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-        /* Opcional: sombra suave */
-    }
-
-    /* ================================================================ */
-    /* ===== ADAPTABILIDAD DE TEXTO LARGO (URLs) ===== */
-    /* Selector specificity: (0,0,1) */
-    /* ================================================================ */
-    p {
-        /* Fuerza que las palabras muy largas (como URLs) se rompan en cualquier punto */
-        word-break: break-all;
-
-        /* Alternativa/Complemento para navegadores antiguos: */
-        word-wrap: break-word;
-        /* redefinición  overflow-wrap*/
-        overflow-wrap: break-word;
-    }
-
-    /* ================================================================ */
-    /* ===== ADAPTABILIDAD DEL FOOTER ===== */
-    /* Selector specificity: (0,0,1) */
-    /* ================================================================ */
-    footer {
-        /* Añade box-sizing para que el padding y el borde no rompan el layout */
-        box-sizing: border-box;
-        width: 100%;
-    }
-
-    /* Selector specificity: (0,0,2) */
-    footer p {
-        /* Solución para cadenas de texto largas (copyright/autor) */
-        word-wrap: break-word;
-        overflow-wrap: break-word;
     }
 }
