@@ -154,6 +154,7 @@ class CargadorSVG {
         }
     }
 
+
     /**
      * Tarea 3: Inserta el contenido del archivo SVG en un elemento HTML.
      * @param {string} contenidoSVG - El contenido XML/Texto del archivo altimetria.svg.
