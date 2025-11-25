@@ -132,9 +132,9 @@ class CargadorSVG {
      */
     leerArchivoSVG() {
         try {
-            // Selector semántico para el segundo input file (altimetria.svg)
-            // Se asume que este input estará en la segunda <section> dentro de la <section> principal.
-            const input = document.querySelector("main > section:first-of-type > section:last-of-type input[type=file]");
+            const input = document.querySelector(
+                "main > section:last-of-type > section:first-of-type input[type=file]"
+            );
 
             if (!input) {
                 console.warn("No se encontró el input file para altimetria.svg.");
@@ -145,7 +145,6 @@ class CargadorSVG {
                 const archivo = event.target.files[0];
                 if (archivo) {
                     const lector = new FileReader();
-                    // Lee el archivo como texto, ya que el SVG es XML/texto
                     lector.onload = (e) => this.insertarSVG(e.target.result);
                     lector.readAsText(archivo);
                 }
