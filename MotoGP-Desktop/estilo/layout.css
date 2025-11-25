@@ -177,6 +177,18 @@ header+p {
 
         /* Alternativa/Complemento para navegadores antiguos: */
         word-wrap: break-word;
+        /* redefinición  overflow-wrap*/
+        overflow-wrap: break-word;
+    }
+
+    /* ================================================================ */
+    /* ===== ADAPTABILIDAD DEL FOOTER ===== */
+    /* Selector specificity: (0,0,2) */
+    /* ================================================================ */
+    footer p {
+        /* Permite que las cadenas largas se rompan, esencial para nombres/copyright */
+        word-wrap: break-word;
+        /* redefinición  overflow-wrap*/
         overflow-wrap: break-word;
     }
 }
