@@ -53,383 +53,383 @@
 	</origen>
 
 	<tramos>
-<tramo distancia="430.61">
-<puntoFinal>
-<longFinal unidad="deg">11.371667</longFinal>
-<latFinal unidad="deg">43.998333</latFinal>
-<altFinal unidad="m">256</altFinal>
-</puntoFinal>
-<sector>1</sector>
-</tramo>
-<tramo distancia="291.97">
-<puntoFinal>
-<longFinal unidad="deg">11.373611</longFinal>
-<latFinal unidad="deg">44.000556</latFinal>
-<altFinal unidad="m">266</altFinal>
-</puntoFinal>
-<sector>1</sector>
-</tramo>
-<tramo distancia="270.92">
-<puntoFinal>
-<longFinal unidad="deg">11.375000</longFinal>
-<latFinal unidad="deg">44.002778</latFinal>
-<altFinal unidad="m">268</altFinal>
-</puntoFinal>
-<sector>1</sector>
-</tramo>
-<tramo distancia="54.12">
-<puntoFinal>
-<longFinal unidad="deg">11.375556</longFinal>
-<latFinal unidad="deg">44.003056</latFinal>
-<altFinal unidad="m">269</altFinal>
-</puntoFinal>
-<sector>1</sector>
-</tramo>
-<tramo distancia="76.10">
-<puntoFinal>
-<longFinal unidad="deg">11.376111</longFinal>
-<latFinal unidad="deg">44.002500</latFinal>
-<altFinal unidad="m">272</altFinal>
-</puntoFinal>
-<sector>1</sector>
-</tramo>
-<tramo distancia="125.53">
-<puntoFinal>
-<longFinal unidad="deg">11.375833</longFinal>
-<latFinal unidad="deg">44.001389</latFinal>
-<altFinal unidad="m">280</altFinal>
-</puntoFinal>
-<sector>1</sector>
-</tramo>
-<tramo distancia="108.23">
-<puntoFinal>
-<longFinal unidad="deg">11.376944</longFinal>
-<latFinal unidad="deg">44.000833</latFinal>
-<altFinal unidad="m">283</altFinal>
-</puntoFinal>
-<sector>1</sector>
-</tramo>
-<tramo distancia="65.65">
-<puntoFinal>
-<longFinal unidad="deg">11.377222</longFinal>
-<latFinal unidad="deg">44.000278</latFinal>
-<altFinal unidad="m">285</altFinal>
-</puntoFinal>
-<sector>1</sector>
-</tramo>
-<tramo distancia="140.38">
-<puntoFinal>
-<longFinal unidad="deg">11.376389</longFinal>
-<latFinal unidad="deg">43.999167</latFinal>
-<altFinal unidad="m">286</altFinal>
-</puntoFinal>
-<sector>1</sector>
-</tramo>
-<tramo distancia="228.29">
-<puntoFinal>
-<longFinal unidad="deg">11.374722</longFinal>
-<latFinal unidad="deg">43.997500</latFinal>
-<altFinal unidad="m">282</altFinal>
-</puntoFinal>
-<sector>1</sector>
-</tramo>
-<tramo distancia="61.77">
-<puntoFinal>
-<longFinal unidad="deg">11.374722</longFinal>
-<latFinal unidad="deg">43.996944</latFinal>
-<altFinal unidad="m">282</altFinal>
-</puntoFinal>
-<sector>2</sector>
-</tramo>
-<tramo distancia="65.65">
-<puntoFinal>
-<longFinal unidad="deg">11.375000</longFinal>
-<latFinal unidad="deg">43.996389</latFinal>
-<altFinal unidad="m">280</altFinal>
-</puntoFinal>
-<sector>2</sector>
-</tramo>
-<tramo distancia="114.15">
-<puntoFinal>
-<longFinal unidad="deg">11.374167</longFinal>
-<latFinal unidad="deg">43.995556</latFinal>
-<altFinal unidad="m">276</altFinal>
-</puntoFinal>
-<sector>2</sector>
-</tramo>
-<tramo distancia="204.02">
-<puntoFinal>
-<longFinal unidad="deg">11.372500</longFinal>
-<latFinal unidad="deg">43.994167</latFinal>
-<altFinal unidad="m">265</altFinal>
-</puntoFinal>
-<sector>2</sector>
-</tramo>
-<tramo distancia="136.86">
-<puntoFinal>
-<longFinal unidad="deg">11.370833</longFinal>
-<latFinal unidad="deg">43.993889</latFinal>
-<altFinal unidad="m">255</altFinal>
-</puntoFinal>
-<sector>2</sector>
-</tramo>
-<tramo distancia="44.44">
-<puntoFinal>
-<longFinal unidad="deg">11.370278</longFinal>
-<latFinal unidad="deg">43.993889</latFinal>
-<altFinal unidad="m">252</altFinal>
-</puntoFinal>
-<sector>2</sector>
-</tramo>
-<tramo distancia="102.77">
-<puntoFinal>
-<longFinal unidad="deg">11.369722</longFinal>
-<latFinal unidad="deg">43.993056</latFinal>
-<altFinal unidad="m">246</altFinal>
-</puntoFinal>
-<sector>2</sector>
-</tramo>
-<tramo distancia="168.21">
-<puntoFinal>
-<longFinal unidad="deg">11.368889</longFinal>
-<latFinal unidad="deg">43.991667</latFinal>
-<altFinal unidad="m">244</altFinal>
-</puntoFinal>
-<sector>2</sector>
-</tramo>
-<tramo distancia="73.47">
-<puntoFinal>
-<longFinal unidad="deg">11.368056</longFinal>
-<latFinal unidad="deg">43.991389</latFinal>
-<altFinal unidad="m">244</altFinal>
-</puntoFinal>
-<sector>2</sector>
-</tramo>
-<tramo distancia="115.32">
-<puntoFinal>
-<longFinal unidad="deg">11.366667</longFinal>
-<latFinal unidad="deg">43.991667</latFinal>
-<altFinal unidad="m">244</altFinal>
-</puntoFinal>
-<sector>2</sector>
-</tramo>
-<tramo distancia="90.89">
-<puntoFinal>
-<longFinal unidad="deg">11.365833</longFinal>
-<latFinal unidad="deg">43.992222</latFinal>
-<altFinal unidad="m">258</altFinal>
-</puntoFinal>
-<sector>3</sector>
-</tramo>
-<tramo distancia="65.65">
-<puntoFinal>
-<longFinal unidad="deg">11.365556</longFinal>
-<latFinal unidad="deg">43.992778</latFinal>
-<altFinal unidad="m">264</altFinal>
-</puntoFinal>
-<sector>3</sector>
-</tramo>
-<tramo distancia="95.29">
-<puntoFinal>
-<longFinal unidad="deg">11.365833</longFinal>
-<latFinal unidad="deg">43.993611</latFinal>
-<altFinal unidad="m">270</altFinal>
-</puntoFinal>
-<sector>3</sector>
-</tramo>
-<tramo distancia="190.58">
-<puntoFinal>
-<longFinal unidad="deg">11.366389</longFinal>
-<latFinal unidad="deg">43.995278</latFinal>
-<altFinal unidad="m">272</altFinal>
-</puntoFinal>
-<sector>3</sector>
-</tramo>
-<tramo distancia="38.05">
-<puntoFinal>
-<longFinal unidad="deg">11.366667</longFinal>
-<latFinal unidad="deg">43.995556</latFinal>
-<altFinal unidad="m">272</altFinal>
-</puntoFinal>
-<sector>3</sector>
-</tramo>
-<tramo distancia="66.66">
-<puntoFinal>
-<longFinal unidad="deg">11.367500</longFinal>
-<latFinal unidad="deg">43.995556</latFinal>
-<altFinal unidad="m">270</altFinal>
-</puntoFinal>
-<sector>3</sector>
-</tramo>
-<tramo distancia="54.12">
-<puntoFinal>
-<longFinal unidad="deg">11.368056</longFinal>
-<latFinal unidad="deg">43.995833</latFinal>
-<altFinal unidad="m">268</altFinal>
-</puntoFinal>
-<sector>3</sector>
-</tramo>
-<tramo distancia="38.05">
-<puntoFinal>
-<longFinal unidad="deg">11.368333</longFinal>
-<latFinal unidad="deg">43.996111</latFinal>
-<altFinal unidad="m">267</altFinal>
-</puntoFinal>
-<sector>3</sector>
-</tramo>
-<tramo distancia="321.41">
-<puntoFinal>
-<longFinal unidad="deg">11.369444</longFinal>
-<latFinal unidad="deg">43.998889</latFinal>
-<altFinal unidad="m">271</altFinal>
-</puntoFinal>
-<sector>3</sector>
-</tramo>
-<tramo distancia="38.05">
-<puntoFinal>
-<longFinal unidad="deg">11.369722</longFinal>
-<latFinal unidad="deg">43.999167</latFinal>
-<altFinal unidad="m">270</altFinal>
-</puntoFinal>
-<sector>3</sector>
-</tramo>
-<tramo distancia="66.66">
-<puntoFinal>
-<longFinal unidad="deg">11.370556</longFinal>
-<latFinal unidad="deg">43.999167</latFinal>
-<altFinal unidad="m">267</altFinal>
-</puntoFinal>
-<sector>4</sector>
-</tramo>
-<tramo distancia="65.65">
-<puntoFinal>
-<longFinal unidad="deg">11.370833</longFinal>
-<latFinal unidad="deg">43.998611</latFinal>
-<altFinal unidad="m">265</altFinal>
-</puntoFinal>
-<sector>4</sector>
-</tramo>
-<tramo distancia="30.89">
-<puntoFinal>
-<longFinal unidad="deg">11.370833</longFinal>
-<latFinal unidad="deg">43.998333</latFinal>
-<altFinal unidad="m">263</altFinal>
-</puntoFinal>
-<sector>4</sector>
-</tramo>
-<tramo distancia="76.10">
-<puntoFinal>
-<longFinal unidad="deg">11.370278</longFinal>
-<latFinal unidad="deg">43.997778</latFinal>
-<altFinal unidad="m">262</altFinal>
-</puntoFinal>
-<sector>4</sector>
-</tramo>
-<tramo distancia="54.12">
-<puntoFinal>
-<longFinal unidad="deg">11.369722</longFinal>
-<latFinal unidad="deg">43.997500</latFinal>
-<altFinal unidad="m">261</altFinal>
-</puntoFinal>
-<sector>4</sector>
-</tramo>
-<tramo distancia="30.89">
-<puntoFinal>
-<longFinal unidad="deg">11.369722</longFinal>
-<latFinal unidad="deg">43.997222</latFinal>
-<altFinal unidad="m">261</altFinal>
-</puntoFinal>
-<sector>4</sector>
-</tramo>
-<tramo distancia="92.66">
-<puntoFinal>
-<longFinal unidad="deg">11.369722</longFinal>
-<latFinal unidad="deg">43.996389</latFinal>
-<altFinal unidad="m">260</altFinal>
-</puntoFinal>
-<sector>4</sector>
-</tramo>
-<tramo distancia="190.25">
-<puntoFinal>
-<longFinal unidad="deg">11.368333</longFinal>
-<latFinal unidad="deg">43.995000</latFinal>
-<altFinal unidad="m">260</altFinal>
-</puntoFinal>
-<sector>4</sector>
-</tramo>
-<tramo distancia="204.03">
-<puntoFinal>
-<longFinal unidad="deg">11.366667</longFinal>
-<latFinal unidad="deg">43.993611</latFinal>
-<altFinal unidad="m">261</altFinal>
-</puntoFinal>
-<sector>4</sector>
-</tramo>
-<tramo distancia="65.65">
-<puntoFinal>
-<longFinal unidad="deg">11.366389</longFinal>
-<latFinal unidad="deg">43.993056</latFinal>
-<altFinal unidad="m">260</altFinal>
-</puntoFinal>
-<sector>5</sector>
-</tramo>
-<tramo distancia="30.89">
-<puntoFinal>
-<longFinal unidad="deg">11.366389</longFinal>
-<latFinal unidad="deg">43.992778</latFinal>
-<altFinal unidad="m">260</altFinal>
-</puntoFinal>
-<sector>5</sector>
-</tramo>
-<tramo distancia="38.05">
-<puntoFinal>
-<longFinal unidad="deg">11.366667</longFinal>
-<latFinal unidad="deg">43.992500</latFinal>
-<altFinal unidad="m">258</altFinal>
-</puntoFinal>
-<sector>5</sector>
-</tramo>
-<tramo distancia="54.12">
-<puntoFinal>
-<longFinal unidad="deg">11.367222</longFinal>
-<latFinal unidad="deg">43.992222</latFinal>
-<altFinal unidad="m">255</altFinal>
-</puntoFinal>
-<sector>5</sector>
-</tramo>
-<tramo distancia="73.47">
-<puntoFinal>
-<longFinal unidad="deg">11.368056</longFinal>
-<latFinal unidad="deg">43.992500</latFinal>
-<altFinal unidad="m">250</altFinal>
-</puntoFinal>
-<sector>5</sector>
-</tramo>
-<tramo distancia="76.10">
-<puntoFinal>
-<longFinal unidad="deg">11.368611</longFinal>
-<latFinal unidad="deg">43.993056</latFinal>
-<altFinal unidad="m">247</altFinal>
-</puntoFinal>
-<sector>5</sector>
-</tramo>
-<tramo distancia="205.54">
-<puntoFinal>
-<longFinal unidad="deg">11.369722</longFinal>
-<latFinal unidad="deg">43.994722</latFinal>
-<altFinal unidad="m">251</altFinal>
-</puntoFinal>
-<sector>5</sector>
-</tramo>
-<tramo distancia="430.61">
-<puntoFinal>
-<longFinal unidad="deg">11.371667</longFinal>
-<latFinal unidad="deg">43.998333</latFinal>
-<altFinal unidad="m">256</altFinal>
-</puntoFinal>
-<sector>1</sector>
-</tramo>
-</tramos>
+		<tramo distancia="430.61">
+		<puntoFinal>
+		<longFinal unidad="deg">11.371667</longFinal>
+		<latFinal unidad="deg">43.998333</latFinal>
+		<altFinal unidad="m">256</altFinal>
+		</puntoFinal>
+		<sector>1</sector>
+		</tramo>
+		<tramo distancia="291.97">
+		<puntoFinal>
+		<longFinal unidad="deg">11.373611</longFinal>
+		<latFinal unidad="deg">44.000556</latFinal>
+		<altFinal unidad="m">266</altFinal>
+		</puntoFinal>
+		<sector>1</sector>
+		</tramo>
+		<tramo distancia="270.92">
+		<puntoFinal>
+		<longFinal unidad="deg">11.375000</longFinal>
+		<latFinal unidad="deg">44.002778</latFinal>
+		<altFinal unidad="m">268</altFinal>
+		</puntoFinal>
+		<sector>1</sector>
+		</tramo>
+		<tramo distancia="54.12">
+		<puntoFinal>
+		<longFinal unidad="deg">11.375556</longFinal>
+		<latFinal unidad="deg">44.003056</latFinal>
+		<altFinal unidad="m">269</altFinal>
+		</puntoFinal>
+		<sector>1</sector>
+		</tramo>
+		<tramo distancia="76.10">
+		<puntoFinal>
+		<longFinal unidad="deg">11.376111</longFinal>
+		<latFinal unidad="deg">44.002500</latFinal>
+		<altFinal unidad="m">272</altFinal>
+		</puntoFinal>
+		<sector>1</sector>
+		</tramo>
+		<tramo distancia="125.53">
+		<puntoFinal>
+		<longFinal unidad="deg">11.375833</longFinal>
+		<latFinal unidad="deg">44.001389</latFinal>
+		<altFinal unidad="m">280</altFinal>
+		</puntoFinal>
+		<sector>1</sector>
+		</tramo>
+		<tramo distancia="108.23">
+		<puntoFinal>
+		<longFinal unidad="deg">11.376944</longFinal>
+		<latFinal unidad="deg">44.000833</latFinal>
+		<altFinal unidad="m">283</altFinal>
+		</puntoFinal>
+		<sector>1</sector>
+		</tramo>
+		<tramo distancia="65.65">
+		<puntoFinal>
+		<longFinal unidad="deg">11.377222</longFinal>
+		<latFinal unidad="deg">44.000278</latFinal>
+		<altFinal unidad="m">285</altFinal>
+		</puntoFinal>
+		<sector>1</sector>
+		</tramo>
+		<tramo distancia="140.38">
+		<puntoFinal>
+		<longFinal unidad="deg">11.376389</longFinal>
+		<latFinal unidad="deg">43.999167</latFinal>
+		<altFinal unidad="m">286</altFinal>
+		</puntoFinal>
+		<sector>1</sector>
+		</tramo>
+		<tramo distancia="228.29">
+		<puntoFinal>
+		<longFinal unidad="deg">11.374722</longFinal>
+		<latFinal unidad="deg">43.997500</latFinal>
+		<altFinal unidad="m">282</altFinal>
+		</puntoFinal>
+		<sector>1</sector>
+		</tramo>
+		<tramo distancia="61.77">
+		<puntoFinal>
+		<longFinal unidad="deg">11.374722</longFinal>
+		<latFinal unidad="deg">43.996944</latFinal>
+		<altFinal unidad="m">282</altFinal>
+		</puntoFinal>
+		<sector>2</sector>
+		</tramo>
+		<tramo distancia="65.65">
+		<puntoFinal>
+		<longFinal unidad="deg">11.375000</longFinal>
+		<latFinal unidad="deg">43.996389</latFinal>
+		<altFinal unidad="m">280</altFinal>
+		</puntoFinal>
+		<sector>2</sector>
+		</tramo>
+		<tramo distancia="114.15">
+		<puntoFinal>
+		<longFinal unidad="deg">11.374167</longFinal>
+		<latFinal unidad="deg">43.995556</latFinal>
+		<altFinal unidad="m">276</altFinal>
+		</puntoFinal>
+		<sector>2</sector>
+		</tramo>
+		<tramo distancia="204.02">
+		<puntoFinal>
+		<longFinal unidad="deg">11.372500</longFinal>
+		<latFinal unidad="deg">43.994167</latFinal>
+		<altFinal unidad="m">265</altFinal>
+		</puntoFinal>
+		<sector>2</sector>
+		</tramo>
+		<tramo distancia="136.86">
+		<puntoFinal>
+		<longFinal unidad="deg">11.370833</longFinal>
+		<latFinal unidad="deg">43.993889</latFinal>
+		<altFinal unidad="m">255</altFinal>
+		</puntoFinal>
+		<sector>2</sector>
+		</tramo>
+		<tramo distancia="44.44">
+		<puntoFinal>
+		<longFinal unidad="deg">11.370278</longFinal>
+		<latFinal unidad="deg">43.993889</latFinal>
+		<altFinal unidad="m">252</altFinal>
+		</puntoFinal>
+		<sector>2</sector>
+		</tramo>
+		<tramo distancia="102.77">
+		<puntoFinal>
+		<longFinal unidad="deg">11.369722</longFinal>
+		<latFinal unidad="deg">43.993056</latFinal>
+		<altFinal unidad="m">246</altFinal>
+		</puntoFinal>
+		<sector>2</sector>
+		</tramo>
+		<tramo distancia="168.21">
+		<puntoFinal>
+		<longFinal unidad="deg">11.368889</longFinal>
+		<latFinal unidad="deg">43.991667</latFinal>
+		<altFinal unidad="m">244</altFinal>
+		</puntoFinal>
+		<sector>2</sector>
+		</tramo>
+		<tramo distancia="73.47">
+		<puntoFinal>
+		<longFinal unidad="deg">11.368056</longFinal>
+		<latFinal unidad="deg">43.991389</latFinal>
+		<altFinal unidad="m">244</altFinal>
+		</puntoFinal>
+		<sector>2</sector>
+		</tramo>
+		<tramo distancia="115.32">
+		<puntoFinal>
+		<longFinal unidad="deg">11.366667</longFinal>
+		<latFinal unidad="deg">43.991667</latFinal>
+		<altFinal unidad="m">244</altFinal>
+		</puntoFinal>
+		<sector>2</sector>
+		</tramo>
+		<tramo distancia="90.89">
+		<puntoFinal>
+		<longFinal unidad="deg">11.365833</longFinal>
+		<latFinal unidad="deg">43.992222</latFinal>
+		<altFinal unidad="m">258</altFinal>
+		</puntoFinal>
+		<sector>2</sector>
+		</tramo>
+		<tramo distancia="65.65">
+		<puntoFinal>
+		<longFinal unidad="deg">11.365556</longFinal>
+		<latFinal unidad="deg">43.992778</latFinal>
+		<altFinal unidad="m">264</altFinal>
+		</puntoFinal>
+		<sector>2</sector>
+		</tramo>
+		<tramo distancia="95.29">
+		<puntoFinal>
+		<longFinal unidad="deg">11.365833</longFinal>
+		<latFinal unidad="deg">43.993611</latFinal>
+		<altFinal unidad="m">270</altFinal>
+		</puntoFinal>
+		<sector>2</sector>
+		</tramo>
+		<tramo distancia="190.58">
+		<puntoFinal>
+		<longFinal unidad="deg">11.366389</longFinal>
+		<latFinal unidad="deg">43.995278</latFinal>
+		<altFinal unidad="m">272</altFinal>
+		</puntoFinal>
+		<sector>2</sector>
+		</tramo>
+		<tramo distancia="38.05">
+		<puntoFinal>
+		<longFinal unidad="deg">11.366667</longFinal>
+		<latFinal unidad="deg">43.995556</latFinal>
+		<altFinal unidad="m">272</altFinal>
+		</puntoFinal>
+		<sector>2</sector>
+		</tramo>
+		<tramo distancia="66.66">
+		<puntoFinal>
+		<longFinal unidad="deg">11.367500</longFinal>
+		<latFinal unidad="deg">43.995556</latFinal>
+		<altFinal unidad="m">270</altFinal>
+		</puntoFinal>
+		<sector>2</sector>
+		</tramo>
+		<tramo distancia="54.12">
+		<puntoFinal>
+		<longFinal unidad="deg">11.368056</longFinal>
+		<latFinal unidad="deg">43.995833</latFinal>
+		<altFinal unidad="m">268</altFinal>
+		</puntoFinal>
+		<sector>2</sector>
+		</tramo>
+		<tramo distancia="38.05">
+		<puntoFinal>
+		<longFinal unidad="deg">11.368333</longFinal>
+		<latFinal unidad="deg">43.996111</latFinal>
+		<altFinal unidad="m">267</altFinal>
+		</puntoFinal>
+		<sector>2</sector>
+		</tramo>
+		<tramo distancia="321.41">
+		<puntoFinal>
+		<longFinal unidad="deg">11.369444</longFinal>
+		<latFinal unidad="deg">43.998889</latFinal>
+		<altFinal unidad="m">271</altFinal>
+		</puntoFinal>
+		<sector>2</sector>
+		</tramo>
+		<tramo distancia="38.05">
+		<puntoFinal>
+		<longFinal unidad="deg">11.369722</longFinal>
+		<latFinal unidad="deg">43.999167</latFinal>
+		<altFinal unidad="m">270</altFinal>
+		</puntoFinal>
+		<sector>2</sector>
+		</tramo>
+		<tramo distancia="66.66">
+		<puntoFinal>
+		<longFinal unidad="deg">11.370556</longFinal>
+		<latFinal unidad="deg">43.999167</latFinal>
+		<altFinal unidad="m">267</altFinal>
+		</puntoFinal>
+		<sector>3</sector>
+		</tramo>
+		<tramo distancia="65.65">
+		<puntoFinal>
+		<longFinal unidad="deg">11.370833</longFinal>
+		<latFinal unidad="deg">43.998611</latFinal>
+		<altFinal unidad="m">265</altFinal>
+		</puntoFinal>
+		<sector>3</sector>
+		</tramo>
+		<tramo distancia="30.89">
+		<puntoFinal>
+		<longFinal unidad="deg">11.370833</longFinal>
+		<latFinal unidad="deg">43.998333</latFinal>
+		<altFinal unidad="m">263</altFinal>
+		</puntoFinal>
+		<sector>3</sector>
+		</tramo>
+		<tramo distancia="76.10">
+		<puntoFinal>
+		<longFinal unidad="deg">11.370278</longFinal>
+		<latFinal unidad="deg">43.997778</latFinal>
+		<altFinal unidad="m">262</altFinal>
+		</puntoFinal>
+		<sector>3</sector>
+		</tramo>
+		<tramo distancia="54.12">
+		<puntoFinal>
+		<longFinal unidad="deg">11.369722</longFinal>
+		<latFinal unidad="deg">43.997500</latFinal>
+		<altFinal unidad="m">261</altFinal>
+		</puntoFinal>
+		<sector>3</sector>
+		</tramo>
+		<tramo distancia="30.89">
+		<puntoFinal>
+		<longFinal unidad="deg">11.369722</longFinal>
+		<latFinal unidad="deg">43.997222</latFinal>
+		<altFinal unidad="m">261</altFinal>
+		</puntoFinal>
+		<sector>3</sector>
+		</tramo>
+		<tramo distancia="92.66">
+		<puntoFinal>
+		<longFinal unidad="deg">11.369722</longFinal>
+		<latFinal unidad="deg">43.996389</latFinal>
+		<altFinal unidad="m">260</altFinal>
+		</puntoFinal>
+		<sector>3</sector>
+		</tramo>
+		<tramo distancia="190.25">
+		<puntoFinal>
+		<longFinal unidad="deg">11.368333</longFinal>
+		<latFinal unidad="deg">43.995000</latFinal>
+		<altFinal unidad="m">260</altFinal>
+		</puntoFinal>
+		<sector>3</sector>
+		</tramo>
+		<tramo distancia="204.03">
+		<puntoFinal>
+		<longFinal unidad="deg">11.366667</longFinal>
+		<latFinal unidad="deg">43.993611</latFinal>
+		<altFinal unidad="m">261</altFinal>
+		</puntoFinal>
+		<sector>3</sector>
+		</tramo>
+		<tramo distancia="65.65">
+		<puntoFinal>
+		<longFinal unidad="deg">11.366389</longFinal>
+		<latFinal unidad="deg">43.993056</latFinal>
+		<altFinal unidad="m">260</altFinal>
+		</puntoFinal>
+		<sector>3</sector>
+		</tramo>
+		<tramo distancia="30.89">
+		<puntoFinal>
+		<longFinal unidad="deg">11.366389</longFinal>
+		<latFinal unidad="deg">43.992778</latFinal>
+		<altFinal unidad="m">260</altFinal>
+		</puntoFinal>
+		<sector>3</sector>
+		</tramo>
+		<tramo distancia="38.05">
+		<puntoFinal>
+		<longFinal unidad="deg">11.366667</longFinal>
+		<latFinal unidad="deg">43.992500</latFinal>
+		<altFinal unidad="m">258</altFinal>
+		</puntoFinal>
+		<sector>3</sector>
+		</tramo>
+		<tramo distancia="54.12">
+		<puntoFinal>
+		<longFinal unidad="deg">11.367222</longFinal>
+		<latFinal unidad="deg">43.992222</latFinal>
+		<altFinal unidad="m">255</altFinal>
+		</puntoFinal>
+		<sector>3</sector>
+		</tramo>
+		<tramo distancia="73.47">
+		<puntoFinal>
+		<longFinal unidad="deg">11.368056</longFinal>
+		<latFinal unidad="deg">43.992500</latFinal>
+		<altFinal unidad="m">250</altFinal>
+		</puntoFinal>
+		<sector>3</sector>
+		</tramo>
+		<tramo distancia="76.10">
+		<puntoFinal>
+		<longFinal unidad="deg">11.368611</longFinal>
+		<latFinal unidad="deg">43.993056</latFinal>
+		<altFinal unidad="m">247</altFinal>
+		</puntoFinal>
+		<sector>3</sector>
+		</tramo>
+		<tramo distancia="205.54">
+		<puntoFinal>
+		<longFinal unidad="deg">11.369722</longFinal>
+		<latFinal unidad="deg">43.994722</latFinal>
+		<altFinal unidad="m">251</altFinal>
+		</puntoFinal>
+		<sector>3</sector>
+		</tramo>
+		<tramo distancia="430.61">
+		<puntoFinal>
+		<longFinal unidad="deg">11.371667</longFinal>
+		<latFinal unidad="deg">43.998333</latFinal>
+		<altFinal unidad="m">256</altFinal>
+		</puntoFinal>
+		<sector>1</sector>
+		</tramo>
+	</tramos>
 
 	<vencedor>
 		<nombreVencedor>Marc Marquez</nombreVencedor>
