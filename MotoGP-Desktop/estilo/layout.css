@@ -23,8 +23,10 @@ header {
 /* ================================================================ */
 @media (min-width: 768px) {
     header {
-        flex-direction: row;       /* redefinición flex-direction */
-        justify-content: space-between; /* redefinición justify-content */
+        flex-direction: row;
+        /* redefinición flex-direction */
+        justify-content: space-between;
+        /* redefinición justify-content */
     }
 }
 
@@ -44,7 +46,8 @@ header nav {
 /* Redefinición intencional de justify-content */
 @media (min-width: 768px) {
     header nav {
-        justify-content: flex-end; /* redefinición justify-content */
+        justify-content: flex-end;
+        /* redefinición justify-content */
     }
 }
 
@@ -65,11 +68,12 @@ main {
 /* ===== MIGAS DE PAN ===== */
 /* Selector específico (header + p) specificity: (0,0,2) */
 /* ================================================================ */
-header + p {
+header+p {
     padding: 0.5rem 1rem;
     background-color: #f5f5f5;
     border-bottom: 1px solid #ddd;
-    color: #333; /* advertencia permitida de color */
+    color: #333;
+    /* advertencia permitida de color */
 }
 
 
@@ -83,38 +87,45 @@ header + p {
     /* Redefinición intencional de flex-direction y align-items */
     /* Selector specificity: (0,0,1) */
     header {
-        flex-direction: column;  /* redefinición flex-direction */
-        align-items: center;     /* redefinición align-items */
+        flex-direction: column;
+        /* redefinición flex-direction */
+        align-items: center;
+        /* redefinición align-items */
     }
 
     /* Redefinición intencional del flexbox del nav */
     /* Selector specificity: (0,0,2) */
     header nav {
-        flex-direction: column; /* redefinición flex-direction */
-        align-items: center;    /* redefinición align-items */
+        flex-direction: column;
+        /* redefinición flex-direction */
+        align-items: center;
+        /* redefinición align-items */
     }
 
     /* Migas ocultas únicamente en móvil */
     /* Selector specificity: (0,0,2) */
-    header + p {
+    header+p {
         display: none;
     }
 
     /* Multimedia adaptable */
     /* Selector specificity: (0,0,1) */
     video {
-        width: 100%;   /* redefinición width */
-        height: auto;  /* redefinición height */
+        width: 100%;
+        /* redefinición width */
+        height: auto;
+        /* redefinición height */
     }
 
     audio {
-        width: 100%;   /* redefinición width */
+        width: 100%;
+        /* redefinición width */
     }
 
     img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+        max-width: 100%;
+        height: auto;
+        display: block;
     }
 
     /* =========================================================== */
@@ -141,14 +152,31 @@ header + p {
         border-bottom: 1px solid #ddd;
     }
 
-    article h2 + img {
-    width: 100%;        /* La imagen ocupa todo el ancho del contenedor */
-    height: auto;       /* Mantiene la proporción de la imagen */
-    display: block;     /* Evita espacios debajo de la imagen */
-    margin: 0 auto;     /* Centra la imagen si es necesario */
-    border-radius: 0.5rem; /* Opcional: bordes ligeramente redondeados */
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2); /* Opcional: sombra suave */
-}
-}
+    article h2+img {
+        width: 100%;
+        /* La imagen ocupa todo el ancho del contenedor */
+        height: auto;
+        /* Mantiene la proporción de la imagen */
+        display: block;
+        /* Evita espacios debajo de la imagen */
+        margin: 0 auto;
+        /* Centra la imagen si es necesario */
+        border-radius: 0.5rem;
+        /* Opcional: bordes ligeramente redondeados */
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        /* Opcional: sombra suave */
+    }
 
+    /* ================================================================ */
+    /* ===== ADAPTABILIDAD DE TEXTO LARGO (URLs) ===== */
+    /* Selector specificity: (0,0,1) */
+    /* ================================================================ */
+    p {
+        /* Fuerza que las palabras muy largas (como URLs) se rompan en cualquier punto */
+        word-break: break-all;
 
+        /* Alternativa/Complemento para navegadores antiguos: */
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+}
