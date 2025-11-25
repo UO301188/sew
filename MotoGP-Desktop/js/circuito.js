@@ -1,37 +1,30 @@
 /**
  * Clase Circuito
  * Se encarga de comprobar el soporte del API File, leer el contenido del archivo
- * InfoCircuito.html seleccionado por el usuario y mostrarlo en la página,
- * cumpliendo con las restricciones de ECMAScript puro y selectores semánticos.
+ * InfoCircuito.html seleccionado por el usuario y mostrarlo en la página.
+ * (Mantenida del ejercicio anterior)
  */
 class Circuito {
     constructor() {
-        // 1. Comprueba el soporte del API File. Si es compatible, continúa.
         if (this.comprobarApiFile()) {
             this.leerArchivoHTML();
         }
     }
 
     /**
-     * Tarea 2: Verifica si el navegador soporta el uso del API File.
-     * Muestra un mensaje al usuario si no está soportado.
-     * @returns {boolean} True si la API File es soportada, False en caso contrario.
+     * Verifica si el navegador soporta el uso del API File.
      */
     comprobarApiFile() {
+        // ... (código comprobacion anterior) ...
         if (!(window.File && window.FileReader)) {
-            // Selector semántico para el artículo contenedor
             const contenedorError = document.querySelector('main > section:first-of-type > article');
-
-            // Creación del elemento de mensaje de error (Vanilla JS)
             const pError = document.createElement('p');
             pError.textContent = "Error: La API File no es soportada por este navegador.";
             pError.style.color = 'red';
             pError.style.fontWeight = 'bold';
 
-            // Limpia el contenido (manteniendo el h3 estático si ya existe)
             if (contenedorError) {
                 contenedorError.innerHTML = '';
-                // Se recrea el encabezado semántico del artículo que se borró con innerHTML = ''
                 const h3Static = document.createElement('h3');
                 h3Static.textContent = "Detalles del Circuito";
                 contenedorError.appendChild(h3Static);
@@ -41,63 +34,51 @@ class Circuito {
             return false;
         }
 
-        // Si la API es soportada, elimina el mensaje "en desarrollo"
         const pDesarrollo = document.querySelector('main > p');
         if (pDesarrollo && pDesarrollo.textContent.includes('en desarrollo')) {
             pDesarrollo.remove();
         }
-
         console.log("API File soportada por el navegador.");
         return true;
     }
 
     /**
-     * Tarea 3: Configura el listener para el input de archivo.
+     * Configura el listener para el input de archivo (InfoCircuito.html).
      */
     leerArchivoHTML() {
         try {
-            // Selector robusto sin ID/Class: Busca el input[type=file] en cualquier parte dentro de <main>
-            const input = document.querySelector("main input[type=file]");
+            // Selector semántico: Busca el input[type=file] dentro de la primera <section> anidada dentro de la <section> principal de main
+            const input = document.querySelector("main > section:first-of-type > section:first-of-type input[type=file]");
 
             if (!input) {
-                console.warn("No se encontró el input file.");
+                console.warn("No se encontró el input file para InfoCircuito.html.");
                 return;
             }
 
-            // Añadir el listener al evento 'change' del input
             input.addEventListener("change", (event) => {
                 const archivo = event.target.files[0];
                 if (archivo) {
                     const lector = new FileReader();
-                    // Cuando la lectura sea exitosa, llama a mostrarContenido
                     lector.onload = (e) => this.mostrarContenido(e.target.result);
-                    // Inicia la lectura del archivo como texto
                     lector.readAsText(archivo);
                 }
             });
         } catch (error) {
-            console.error("Error al configurar la lectura del archivo:", error);
+            console.error("Error al configurar la lectura del archivo InfoCircuito.html:", error);
         }
     }
 
     /**
-     * Tarea 4: Procesa el contenido HTML leído y lo representa en circuito.html.
+     * Procesa el contenido HTML leído y lo representa.
      */
     mostrarContenido(contenido) {
         const parser = new DOMParser();
-        // Parsear el contenido de texto como un documento HTML
         const docLeido = parser.parseFromString(contenido, "text/html");
-
-        // Contenedor donde se mostrará la información (el article)
         const contenedor = document.querySelector("main > section:first-of-type > article");
 
-        if (!contenedor) {
-            console.error("No se encontró el contenedor de la información del circuito.");
-            return;
-        }
+        if (!contenedor) return;
 
-        // --- Limpieza del Contenedor Dinámico ---
-        // Eliminar todos los hijos del <article> excepto el <h3> estático ("Detalles del Circuito")
+        // Limpieza del Contenedor Dinámico (manteniendo el h3 estático)
         let hijo = contenedor.lastElementChild;
         const h3Static = contenedor.querySelector('h3');
         while (hijo && hijo !== h3Static) {
@@ -105,16 +86,15 @@ class Circuito {
             hijo = contenedor.lastElementChild;
         }
 
-        // 1. Obtener y mostrar el Título del Circuito (H2 del archivo leído)
+        // 1. Título del Circuito
         const h2Leido = docLeido.querySelector("h2");
         if (h2Leido) {
-            // Usamos <h4> para mantener la jerarquía (H2 de la página > H3 estático > H4 del circuito)
             const h4 = document.createElement('h4');
             h4.textContent = h2Leido.textContent;
             contenedor.appendChild(h4);
         }
 
-        // 2. Obtener y mostrar los párrafos y listas (datos, referencias y clasificación)
+        // 2. Párrafos y listas (Datos, Referencias, Clasificación)
         const elementos = docLeido.querySelectorAll("body section p, body section li");
 
         elementos.forEach(el => {
@@ -123,19 +103,91 @@ class Circuito {
             contenedor.appendChild(p);
         });
 
-        // 3. Mostrar una imagen del circuito (ejemplo)
+        // 3. Imagen del circuito (ejemplo)
         const img = document.createElement('img');
-        img.src = "multimedia/mugello-circuit.jpg";
+        img.src = "multimedia/mugello-circuito.jpg";
         img.alt = "Mapa del circuito Internazionale del Mugello";
         img.title = "Circuito leído";
         contenedor.appendChild(img);
-
-
-
     }
 }
 
-// Inicializar la clase Circuito una vez el DOM esté completamente cargado
+// -------------------------------------------------------------
+// Tarea 1: Clase CargadorSVG
+// -------------------------------------------------------------
+
+/**
+ * Clase CargadorSVG
+ * Se encarga de leer el contenido de un archivo SVG y representarlo en el DOM.
+ */
+class CargadorSVG {
+    constructor() {
+        // Asume que la comprobación de API File ya la hizo la clase Circuito
+        this.contenedorSVG = null;
+        this.leerArchivoSVG();
+    }
+
+    /**
+     * Tarea 2: Configura el listener para el input de archivo SVG (altimetria.svg).
+     */
+    leerArchivoSVG() {
+        try {
+            // Selector semántico para el segundo input file (altimetria.svg)
+            // Se asume que este input estará en la segunda <section> dentro de la <section> principal.
+            const input = document.querySelector("main > section:first-of-type > section:last-of-type input[type=file]");
+
+            if (!input) {
+                console.warn("No se encontró el input file para altimetria.svg.");
+                return;
+            }
+
+            input.addEventListener("change", (event) => {
+                const archivo = event.target.files[0];
+                if (archivo) {
+                    const lector = new FileReader();
+                    // Lee el archivo como texto, ya que el SVG es XML/texto
+                    lector.onload = (e) => this.insertarSVG(e.target.result);
+                    lector.readAsText(archivo);
+                }
+            });
+        } catch (error) {
+            console.error("Error al configurar la lectura del archivo SVG:", error);
+        }
+    }
+
+    /**
+     * Tarea 3: Inserta el contenido del archivo SVG en un elemento HTML.
+     * @param {string} contenidoSVG - El contenido XML/Texto del archivo altimetria.svg.
+     */
+    insertarSVG(contenidoSVG) {
+        // Contenedor principal para la altimetría
+        const contenedorPadre = document.querySelector("main > section:last-of-type > article");
+
+        if (!contenedorPadre) {
+            console.error("No se encontró el contenedor para el gráfico SVG.");
+            return;
+        }
+
+        // Limpia el contenido previo del contenedor (solo el gráfico y el mensaje)
+        contenedorPadre.innerHTML = '';
+
+        // El SVG es un XML que debe ser insertado como elemento HTML (no como texto)
+        // Usamos innerHTML en el contenedor para inyectar el código SVG.
+        // NOTA: Para mantener la semántica y evitar el uso de DIVs o ID/Classes,
+        // inyectamos el SVG directamente en el <article> dedicado.
+
+        contenedorPadre.innerHTML = contenidoSVG;
+
+        console.log("Gráfico SVG de altimetría insertado correctamente.");
+    }
+}
+
+// Inicializar ambas clases una vez el DOM esté completamente cargado
 window.addEventListener("DOMContentLoaded", () => {
     new Circuito();
+
+    // Solo inicializar CargadorSVG si el API File es soportada (ya comprobado por Circuito)
+    if (window.File && window.FileReader) {
+        new CargadorSVG();
+    }
 });
