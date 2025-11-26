@@ -112,7 +112,7 @@
         <section>
             <h3>Controles</h3>
             <!-- Zona de Pantalla -->
-            <div class="pantalla">
+            <article>
                 <?php
                 // Si se pulsa mostrar, ejecutamos el método mostrar
                 if (isset($_POST['mostrar'])) {
@@ -122,7 +122,7 @@
                     echo "00:00.0";
                 }
                 ?>
-            </div>
+            </article>
 
             <!-- Formulario con los botones solicitados -->
             <form action="#" method="post">
