@@ -112,9 +112,6 @@ class Circuito {
     }
 }
 
-// -------------------------------------------------------------
-// Clase CargadorSVG
-// -------------------------------------------------------------
 
 /**
  * Clase CargadorSVG
@@ -125,25 +122,43 @@ class CargadorSVG {
         this.leerArchivoSVG();
     }
 
+
+
+    /**
+     * Convierte una cadena de SVG (2.0 a 1.1) y la prepara para ser adaptable
+     * inyectando el viewBox y eliminando los atributos de dimensión fijos.
+     */
     convertirSvgA11(svgText) {
-        // 1. Elimina los atributos width="..." y height="..." que impiden la adaptabilidad CSS.
-        let tempSvg = svgText.replace(/width=".*?"/, '');
-        tempSvg = tempSvg.replace(/height=".*?"/, '');
+        // Expresiones regulares para capturar width y height
+        const widthMatch = svgText.match(/width="(\d+)"/);
+        const heightMatch = svgText.match(/height="(\d+)"/);
 
-        // 2. Añade 'version="1.1"' (usando el atributo xmlns para colocarlo)
-        // También elimina el espacio extra que pudo dejar la eliminación del width/height.
-        tempSvg = tempSvg.replace(
-            /<svg\s+xmlns="http:\/\/www.w3.org\/2000\/svg"/,
-            '<svg version="1.1" xmlns="http://www.w3.org/2000/svg"'
-        );
+        let tempSvg = svgText;
 
-        // 3. Asegura que tenga el namespace xlink.
-        if (!tempSvg.includes('xmlns:xlink')) {
+        // 1. **Extracción y Construcción del viewBox**
+        let viewBoxAttr = '';
+        if (widthMatch && heightMatch) {
+            // Los valores son W=1000 y H=500 (extraídos de los grupos de captura)
+            const w = widthMatch[1];
+            const h = heightMatch[1];
+            viewBoxAttr = `viewBox="0 0 ${w} ${h}"`;
+        }
+
+        // 2. **Eliminación de width y height fijos**
+        tempSvg = tempSvg.replace(/width="\d+"/, '');
+        tempSvg = tempSvg.replace(/height="\d+"/, '');
+
+        // 3. **Inyección de version="1.1", viewBox y xmlns:xlink**
+        // Se inserta todo justo después de <svg
+        if (!tempSvg.includes('version="1.1"')) {
             tempSvg = tempSvg.replace(
-                /xmlns="http:\/\/www.w3.org\/2000\/svg"/,
-                'xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"'
+                /<svg\s*/, // Busca la etiqueta de apertura <svg seguida de espacios
+                // Se inserta viewBoxAttr, version="1.1", y xmlns:xlink
+                `<svg ${viewBoxAttr} version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" `
             );
         }
+
+        // El paso de conversión 2.0 -> 1.1 y la adaptabilidad quedan combinados.
 
         return tempSvg;
     }
