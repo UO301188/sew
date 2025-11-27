@@ -113,7 +113,7 @@ class Circuito {
 }
 
 // -------------------------------------------------------------
-// Tarea 1: Clase CargadorSVG
+// Clase CargadorSVG
 // -------------------------------------------------------------
 
 /**
@@ -122,9 +122,28 @@ class Circuito {
  */
 class CargadorSVG {
     constructor() {
-        // Asume que la comprobación de API File ya la hizo la clase Circuito
-        this.contenedorSVG = null;
         this.leerArchivoSVG();
+    }
+
+    /**
+     * Convierte una cadena de SVG generada con la versión 2.0 a la versión 1.1.
+     */
+    convertirSvgA11(svgText) {
+        // 1. Añade 'version="1.1"'
+        let tempSvg = svgText.replace(
+            /<svg\s/,
+            '<svg version="1.1" '
+        );
+
+        // 2. Asegura que tenga el namespace xlink, común en SVG 1.1.
+        if (!tempSvg.includes('xmlns:xlink')) {
+            tempSvg = tempSvg.replace(
+                /xmlns="http:\/\/www.w3.org\/2000\/svg"/,
+                'xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"'
+            );
+        }
+
+        return tempSvg;
     }
 
     /**
@@ -132,6 +151,8 @@ class CargadorSVG {
      */
     leerArchivoSVG() {
         try {
+            // Selector semántico para el INPUT del SVG: 
+            // main > segunda section > primera section anidada > input[type=file]
             const input = document.querySelector(
                 "main > section:last-of-type > section:first-of-type input[type=file]"
             );
@@ -157,10 +178,10 @@ class CargadorSVG {
 
     /**
      * Tarea 3: Inserta el contenido del archivo SVG en un elemento HTML.
-     * @param {string} contenidoSVG - El contenido XML/Texto del archivo altimetria.svg.
      */
     insertarSVG(contenidoSVG) {
-        // Contenedor principal para la altimetría
+        // Selector semántico para el CONTENEDOR del SVG: 
+        // main > segunda section > article
         const contenedorPadre = document.querySelector("main > section:last-of-type > article");
 
         if (!contenedorPadre) {
@@ -168,26 +189,26 @@ class CargadorSVG {
             return;
         }
 
-        // Limpia el contenido previo del contenedor (solo el gráfico y el mensaje)
-        contenedorPadre.innerHTML = '';
+        // 1. Aplicar la conversión 2.0 -> 1.1 antes de incrustar
+        const svg11Content = this.convertirSvgA11(contenidoSVG);
 
-        // El SVG es un XML que debe ser insertado como elemento HTML (no como texto)
-        // Usamos innerHTML en el contenedor para inyectar el código SVG.
-        // NOTA: Para mantener la semántica y evitar el uso de DIVs o ID/Classes,
-        // inyectamos el SVG directamente en el <article> dedicado.
+        // 2. Limpieza del Contenedor
+        contenedorPadre.innerHTML = '<h3>Perfil de Altimetría</h3>';
 
-        contenedorPadre.innerHTML = contenidoSVG;
+        // 3. Inyecta el SVG modificado (versión 1.1)
+        // Usar innerHTML para incrustar el contenido SVG como elementos DOM
+        contenedorPadre.innerHTML += svg11Content;
 
-        console.log("Gráfico SVG de altimetría insertado correctamente.");
+        console.log("Gráfico SVG de altimetría (Convertido a 1.1) insertado correctamente.");
     }
 }
 
 // Inicializar ambas clases una vez el DOM esté completamente cargado
 window.addEventListener("DOMContentLoaded", () => {
-    new Circuito();
+    const circuito = new Circuito();
 
-    // Solo inicializar CargadorSVG si el API File es soportada (ya comprobado por Circuito)
-    if (window.File && window.FileReader) {
+    // Solo inicializar CargadorSVG si el API File es soportada
+    if (circuito.comprobarApiFile()) {
         new CargadorSVG();
     }
 });
