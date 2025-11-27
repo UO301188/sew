@@ -10,17 +10,7 @@
     box-sizing: border-box;
 }
 
-p,
-footer p,
-label {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
 
-label {
-    display: block;
-    max-width: 100%;
-}
 
 input[type="file"] {
     max-width: 100%;
@@ -156,6 +146,18 @@ header+p {
     td {
         padding: 0.5rem 0;
         border-bottom: 1px solid #ddd;
+    }
+
+    p,
+    footer p,
+    label {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    label {
+        display: block;
+        max-width: 100%;
     }
 
     article h2+img {
