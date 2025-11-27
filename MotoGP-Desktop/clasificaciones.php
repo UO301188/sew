@@ -1,20 +1,5 @@
 <?php
-/**
- * DOCUMENTO: clasificaciones.php
- * DESCRIPCIÓN: Muestra el ganador de la carrera y la clasificación del mundial
- * utilizando la información de un archivo XML (circuitoEsquema.xml)
- * mediante la clase Clasificacion.
- *
- * Tarea 2: Creación de la clase Clasificacion
- * Tarea 3: Creación del método de lectura (consultar)
- * Tarea 4: Mostrar el ganador de la carrera
- * Tarea 5: Mostrar la clasificación del mundial
- */
 
-/**
- * Tarea 2: Creación de la clase Clasificacion.
- * Utiliza el paradigma de orientación a objetos en PHP.
- */
 class Clasificacion
 {
     /**
@@ -31,17 +16,12 @@ class Clasificacion
         $this->documento = 'xml/circuitoEsquema.xml';
     }
 
-    /**
-     * Tarea 3: Creación del método de lectura del documento XML.
-     * Lee y parsea el contenido del archivo usando SimpleXML.
-     * @return SimpleXMLElement|null Objeto SimpleXMLElement si la lectura es exitosa, null en caso contrario.
-     */
     private function consultar()
     {
         if (!file_exists($this->documento)) {
-            // Error handling for missing file
+            // Error handling for missing file (sin estilos)
             error_log("ERROR: No se encuentra el archivo XML en la ruta: " . $this->documento);
-            echo "<p style='color:red; padding: 10px; border: 1px solid red; max-width: 800px; margin: 20px auto;'>ERROR: No se pudo cargar el archivo XML. Verifique la ruta y existencia de: " . htmlspecialchars($this->documento) . "</p>";
+            echo "<p>ERROR: No se pudo cargar el archivo XML. Verifique la ruta y existencia de: " . htmlspecialchars($this->documento) . "</p>";
             return null;
         }
 
@@ -50,9 +30,9 @@ class Clasificacion
             $xml = simplexml_load_file($this->documento);
 
             if ($xml === false) {
-                // Error handling for XML parsing failure
+                // Error handling for XML parsing failure (sin estilos)
                 error_log("ERROR: Fallo al cargar el archivo XML. simplexml_load_file devolvió false.");
-                echo "<p style='color:red; padding: 10px; border: 1px solid red; max-width: 800px; margin: 20px auto;'>ERROR: Fallo al parsear el archivo XML. Verifique el formato del documento.</p>";
+                echo "<p>ERROR: Fallo al parsear el archivo XML. Verifique el formato del documento.</p>";
                 return null;
             }
 
@@ -60,90 +40,92 @@ class Clasificacion
 
         } catch (Exception $e) {
             error_log("Excepción al consultar el XML: " . $e->getMessage());
-            echo "<p style='color:red; padding: 10px; border: 1px solid red; max-width: 800px; margin: 20px auto;'>Excepción al consultar el XML: " . htmlspecialchars($e->getMessage()) . "</p>";
+            echo "<p>Excepción al consultar el XML: " . htmlspecialchars($e->getMessage()) . "</p>";
             return null;
         }
     }
 
-    /**
-     * Tarea 4: Muestra el ganador de la carrera.
-     */
+
     public function mostrarGanadorCarrera()
     {
         $xml = $this->consultar();
         if (!$xml)
             return;
 
-        // Accede al elemento <vencedor>
         $vencedor = $xml->vencedor;
 
         if ($vencedor && $vencedor->nombreVencedor && $vencedor->duracion) {
             $nombre = (string) $vencedor->nombreVencedor;
             $duracion = (string) $vencedor->duracion;
-
-            // Formatear la duración (ej: PT41M9.214S -> 41 minutos, 9.214 segundos)
+            $nombreCircuito = htmlspecialchars((string) $xml->nombre);
             $duracionFormateada = str_replace(array('PT', 'M', 'S'), array('', ' minutos, ', ' segundos'), $duracion);
 
-            echo "<section>";
-            echo "<h2>Ganador de la Carrera</h2>"; // Título de sección más destacado
-            echo "<article>";
-            echo "<h3>El Piloto Victorioso</h3>";
-            echo "<p>El ganador de la carrera en el circuito " . htmlspecialchars((string) $xml->nombre) . " es:</p>";
-            echo "<ul>";
-            echo "<li><strong>Piloto:</strong> " . htmlspecialchars($nombre) . "</li>";
-            echo "<li><strong>Tiempo total:</strong> " . htmlspecialchars($duracionFormateada) . "</li>";
-            echo "</ul>";
-            echo "</article>";
-            echo "</section>";
+            // Se cierra PHP para generar HTML de forma limpia.
+            ?>
+            <section>
+                <h2>Ganador de la Carrera</h2>
+                <article>
+                    <h3>El Piloto Victorioso</h3>
+                    <p>El ganador de la carrera en el circuito <strong><?php echo $nombreCircuito; ?></strong> es:</p>
+                    <ul>
+                        <li><strong>Piloto:</strong> <?php echo htmlspecialchars($nombre); ?></li>
+                        <li><strong>Tiempo total:</strong> <?php echo htmlspecialchars($duracionFormateada); ?></li>
+                    </ul>
+                </article>
+            </section>
+            <?php
+            // Se reabre PHP para continuar la ejecución de la clase/función.
         } else {
             echo "<section><h2>Ganador de la Carrera</h2><p>Información del ganador no disponible en el XML o el formato es incorrecto.</p></section>";
         }
     }
 
-    /**
-     * Tarea 5: Muestra la clasificación del mundial tras la carrera.
-     */
+
     public function mostrarClasificacionMundial()
     {
         $xml = $this->consultar();
         if (!$xml)
             return;
 
-        // Accede al elemento <clasificacion>
         $clasificacion = $xml->clasificacion;
 
         if ($clasificacion && $clasificacion->puesto) {
-            echo "<section>";
-            echo "<h2>Clasificación Mundial (Puntos)</h2>";
-            echo "<article>";
-            echo "<h3>Tabla de Puntuaciones Globales</h3>";
+            // Se cierra PHP para generar el HTML de la tabla.
+            ?>
+            <section>
+                <h2>Clasificación Mundial (Puntos)</h2>
+                <article>
+                    <h3>Tabla de Puntuaciones Globales</h3>
 
-            // Estructura simple de HTML para la clasificación (usando table)
-            echo "<table>";
-            echo "<caption>Clasificación de Puntos del Campeonato tras la carrera.</caption>";
-            echo "<thead>";
-            echo "<tr><th scope='col'>Puesto</th><th scope='col'>Piloto</th><th scope='col'>Puntos</th></tr>";
-            echo "</thead>";
-            echo "<tbody>";
-
-            // Itera sobre los elementos <puesto> dentro de <clasificacion>
-            foreach ($clasificacion->puesto as $puesto) {
-                $posicion = (string) $puesto['pos'];
-                $piloto = (string) $puesto->piloto;
-                $puntos = (string) $puesto->puntos;
-
-                echo "<tr>";
-                echo "<td>" . htmlspecialchars($posicion) . "</td>";
-                echo "<td>" . htmlspecialchars($piloto) . "</td>";
-                echo "<td>" . htmlspecialchars($puntos) . "</td>";
-                echo "</tr>";
-            }
-
-            echo "</tbody>";
-            echo "</table>";
-            echo "</article>";
-            echo "</section>";
-
+                    <table>
+                        <caption>Clasificación de Puntos del Campeonato tras la carrera.</caption>
+                        <thead>
+                            <tr>
+                                <th scope='col'>Puesto</th>
+                                <th scope='col'>Piloto</th>
+                                <th scope='col'>Puntos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            // Se utiliza la sintaxis alternativa de bucles para mayor claridad en el HTML.
+                            foreach ($clasificacion->puesto as $puesto):
+                                $posicion = (string) $puesto['pos'];
+                                $piloto = (string) $puesto->piloto;
+                                $puntos = (string) $puesto->puntos;
+                                ?>
+                                <tr>
+                                    <td><?php echo htmlspecialchars($posicion); ?></td>
+                                    <td><?php echo htmlspecialchars($piloto); ?></td>
+                                    <td><?php echo htmlspecialchars($puntos); ?></td>
+                                </tr>
+                            <?php endforeach; // Cierre del bucle foreach ?>
+                        </tbody>
+                    </table>
+                </article>
+            </section>
+            <?php
+            // Se reabre PHP para continuar la ejecución de la clase/función.
         } else {
             echo "<section><h2>Clasificación Mundial (Puntos)</h2><p>Información de la clasificación del mundial no disponible en el XML.</p></section>";
         }
