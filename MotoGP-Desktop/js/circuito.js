@@ -125,17 +125,19 @@ class CargadorSVG {
         this.leerArchivoSVG();
     }
 
-    /**
-     * Convierte una cadena de SVG generada con la versión 2.0 a la versión 1.1.
-     */
     convertirSvgA11(svgText) {
-        // 1. Añade 'version="1.1"'
-        let tempSvg = svgText.replace(
-            /<svg\s/,
-            '<svg version="1.1" '
+        // 1. Elimina los atributos width="..." y height="..." que impiden la adaptabilidad CSS.
+        let tempSvg = svgText.replace(/width=".*?"/, '');
+        tempSvg = tempSvg.replace(/height=".*?"/, '');
+
+        // 2. Añade 'version="1.1"' (usando el atributo xmlns para colocarlo)
+        // También elimina el espacio extra que pudo dejar la eliminación del width/height.
+        tempSvg = tempSvg.replace(
+            /<svg\s+xmlns="http:\/\/www.w3.org\/2000\/svg"/,
+            '<svg version="1.1" xmlns="http://www.w3.org/2000/svg"'
         );
 
-        // 2. Asegura que tenga el namespace xlink, común en SVG 1.1.
+        // 3. Asegura que tenga el namespace xlink.
         if (!tempSvg.includes('xmlns:xlink')) {
             tempSvg = tempSvg.replace(
                 /xmlns="http:\/\/www.w3.org\/2000\/svg"/,
