@@ -192,3 +192,12 @@ main section:last-of-type div {
     margin-top: 1rem;
     border: 1px solid #ccc;
 }
+
+/* NUEVA REGLA: Contenedor para el gráfico SVG (Altimetría) */
+/* Especificidad: 0,2,0 */
+main>section:nth-of-type(2)>article {
+    min-height: 400px;
+    /* Altura mínima para asegurar que el SVG es visible */
+    border: 1px solid #ccc;
+    padding: 1rem;
+}
