@@ -199,7 +199,7 @@ class CargadorSVG {
     insertarSVG(contenidoSVG) {
         // Selector semántico para el CONTENEDOR del SVG: 
         // main > segunda section > article
-        const contenedorPadre = document.querySelector("main > section:last-of-type > article");
+        const contenedorPadre = document.querySelector("main > section:nth-of-type(2) > article");
 
         if (!contenedorPadre) {
             console.error("No se encontró el contenedor para el gráfico SVG.");
