@@ -167,9 +167,26 @@ header+p {
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     }
 
+    /* Especificidad: 0,0,1 */
     svg {
         max-width: 100%;
         height: auto;
         display: block;
     }
+
+    /* T7: Adaptabilidad del DIV del mapa (Ocupa el 100% del ancho) */
+    /* Especificidad: 0,2,0 */
+    main section:last-of-type div {
+        height: 300px;
+        /* redefinición height */
+    }
+}
+
+/* T6: Estilos para el DIV del mapa (Selector: main section:last-of-type div) */
+/* Especificidad: 0,2,0 */
+main section:last-of-type div {
+    height: 400px;
+    width: 100%;
+    margin-top: 1rem;
+    border: 1px solid #ccc;
 }

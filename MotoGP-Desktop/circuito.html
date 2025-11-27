@@ -13,6 +13,8 @@
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
     <link rel="icon" href="multimedia/favicon-48px.ico" type="image/x-icon" />
     <script src="js/circuito.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY_PERSONAL&callback=initMap">
+    </script>
 </head>
 
 <body>
@@ -69,6 +71,23 @@
                 <h3>Perfil de Altimetría</h3>
                 <p>Seleccione el archivo "altimetria.svg" para mostrar el perfil del circuito.</p>
             </article>
+        </section>
+
+        <section>
+            <h3>Mapa Dinámico (Circuito KML)</h3>
+
+            <section>
+                <h4>Control de Archivo (KML)</h4>
+                <label>
+                    <!-- Tarea 4: Input para KML -->
+                    Cargar circuito.kml:
+                    <input type="file" accept=".kml">
+                </label>
+            </section>
+
+            <div>
+                <p>El mapa se cargará aquí tras seleccionar un archivo KML.</p>
+            </div>
         </section>
 
     </main>
