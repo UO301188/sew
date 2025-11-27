@@ -113,6 +113,7 @@
             <h3>Controles</h3>
             <!-- Zona de Pantalla -->
             <article>
+                <h4>Tiempo Transcurrido</h4>
                 <?php
                 // Si se pulsa mostrar, ejecutamos el método mostrar
                 if (isset($_POST['mostrar'])) {
