@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8" />
     <title>MotoGP-Desktop</title>
@@ -14,6 +15,7 @@
     <script src="js/carrusel.js"></script>
     <script src="js/noticias.js"></script>
 </head>
+
 <body data-page="inicio">
     <header>
         <h1>MotoGP Desktop</h1>
@@ -22,24 +24,24 @@
             <a href="piloto.html" title="MotoGP-Piloto">Piloto</a>
             <a href="circuito.html" title="MotoGP-Circuito">Circuito</a>
             <a href="meteorologia.html" title="MotoGP-Meteorologia">Meteorologia</a>
-            <a href="clasificaciones.html" title="MotoGP-Clasificaciones">Clasificaciones</a>
+            <a href="clasificaciones.php" title="MotoGP-Clasificaciones">Clasificaciones</a>
             <a href="juegos.html" title="MotoGP-Juegos">Juegos</a>
             <a href="ayuda.html" title="MotoGP-Ayuda">Ayuda</a>
         </nav>
     </header>
     <main>
-    <div id="resultado"></div>
+        <div id="resultado"></div>
 
-    <script>
-        $(document).ready(function() {
-            const carrusel = new Carrusel("Circuito de Mugello"); 
-            carrusel.getFotografias().then(() => carrusel.mostrarFotografias());
-        });
-    </script>
-</main>
-<footer>
+        <script>
+            $(document).ready(function () {
+                const carrusel = new Carrusel("Circuito de Mugello");
+                carrusel.getFotografias().then(() => carrusel.mostrarFotografias());
+            });
+        </script>
+    </main>
+    <footer>
         <p>&copy; 2025 MotoGP Desktop | Adrián Pérez Menéndez</p>
     </footer>
 </body>
-</html>
 
+</html>
