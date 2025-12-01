@@ -35,8 +35,8 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'exportar') {
 <head>
     <meta charset="UTF-8">
     <title>Configuración de Pruebas de Usabilidad</title>
-    <link rel="stylesheet" type="text/css" href="/estilo/estilo.css" />
-    <link rel="stylesheet" type="text/css" href="/estilo/layout.css" />
+    <link rel="stylesheet" type="text/css" href="/MotoGP-Desktop/estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="/MotoGP-Desktop/estilo/layout.css" />
 </head>
 
 <body>
