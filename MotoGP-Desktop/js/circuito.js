@@ -15,7 +15,7 @@ class Circuito {
      * Verifica si el navegador soporta el uso del API File.
      */
     comprobarApiFile() {
-        // ... (código comprobacion anterior) ...
+
         if (!(window.File && window.FileReader)) {
             const contenedorError = document.querySelector('main > section:first-of-type > article');
             const pError = document.createElement('p');
@@ -103,7 +103,7 @@ class Circuito {
             contenedor.appendChild(p);
         });
 
-        // 3. Imagen del circuito (ejemplo)
+
         const img = document.createElement('img');
         img.src = "multimedia/mugello-circuit.jpg";
         img.alt = "Mapa del circuito Internazionale del Mugello";
