@@ -105,7 +105,7 @@ class Circuito {
 
         // 3. Imagen del circuito (ejemplo)
         const img = document.createElement('img');
-        img.src = "multimedia/mugello-circuito.jpg";
+        img.src = "multimedia/mugello-circuit.jpg";
         img.alt = "Mapa del circuito Internazionale del Mugello";
         img.title = "Circuito leído";
         contenedor.appendChild(img);
