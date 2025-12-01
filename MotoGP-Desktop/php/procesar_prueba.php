@@ -8,19 +8,18 @@ class ProcesadorPrueba extends Configuracion
         if (!isset($data["codigo_usuario"]) || !isset($data["tiempo_segundos"]))
             return "Error: falta código o tiempo.";
 
+        $edad = intval($data["edad"]);
+        $pericia = intval($data["pericia"]);
+        $prof = intval($data["profesion"]);
+        $gen = intval($data["genero"]);
+
         $this->mysqli->begin_transaction();
 
         try {
-            // PASO 1: Buscar/crear usuario
             $stmt_sel = $this->mysqli->prepare("SELECT id_usuario FROM usuarios WHERE codigo_identificacion=?");
             $stmt_sel->bind_param("s", $data["codigo_usuario"]);
             $stmt_sel->execute();
             $res = $stmt_sel->get_result();
-
-            $edad = intval($data["edad"]);
-            $pericia = intval($data["pericia"]);
-            $prof = intval($data["profesion"]);
-            $gen = intval($data["genero"]);
 
             if ($res->num_rows > 0) {
                 $row = $res->fetch_assoc();
@@ -46,7 +45,12 @@ class ProcesadorPrueba extends Configuracion
             }
             $stmt_sel->close();
 
-            // PASO 2: Insertar prueba
+
+            $tiempo_segundos = intval($data["tiempo_segundos"]);
+            $completado = intval($data["completado"]);
+            $valoracion = intval($data["valoracion"]);
+            $fecha_prueba = date("Y-m-d H:i:s");
+
             $stmt_pr = $this->mysqli->prepare("
                 INSERT INTO pruebas_usabilidad 
                 (id_usuario,dispositivo,tiempo_segundos,completado,comentarios_usuario,
@@ -57,38 +61,38 @@ class ProcesadorPrueba extends Configuracion
                 "isiissis",
                 $id_usuario,
                 $data["dispositivo"],
-                intval($data["tiempo_segundos"]),
-                intval($data["completado"]),
+                $tiempo_segundos,
+                $completado,
                 $data["comentarios_usuario"],
                 $data["propuestas"],
-                intval($data["valoracion"]),
-                date("Y-m-d H:i:s")
+                $valoracion,
+                $fecha_prueba
             );
             $stmt_pr->execute();
             $id_prueba = $this->mysqli->insert_id;
             $stmt_pr->close();
 
-            // PASO 3: Guardar preguntas SUS
             for ($i = 1; $i <= 10; $i++) {
                 if (!isset($data["p$i"]))
                     continue;
+                $respuesta_pregunta = $data["p$i"];
 
                 $stmt_sus = $this->mysqli->prepare("
                     INSERT INTO respuestas_prueba (id_prueba,pregunta_numero,respuesta_texto)
                     VALUES (?,?,?)
                 ");
-                $stmt_sus->bind_param("iis", $id_prueba, $i, $data["p$i"]);
+                $stmt_sus->bind_param("iis", $id_prueba, $i, $respuesta_pregunta);
                 $stmt_sus->execute();
                 $stmt_sus->close();
             }
 
-            // PASO 4: Observaciones del facilitador
-            if (!empty(trim($data["comentarios_facilitador"]))) {
+            $comentarios_facilitador = trim($data["comentarios_facilitador"]);
+            if (!empty($comentarios_facilitador)) {
                 $stmt_obs = $this->mysqli->prepare("
                     INSERT INTO observaciones (id_prueba,comentarios_facilitador)
                     VALUES (?,?)
                 ");
-                $stmt_obs->bind_param("is", $id_prueba, $data["comentarios_facilitador"]);
+                $stmt_obs->bind_param("is", $id_prueba, $comentarios_facilitador);
                 $stmt_obs->execute();
                 $stmt_obs->close();
             }

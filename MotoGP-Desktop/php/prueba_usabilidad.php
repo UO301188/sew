@@ -40,9 +40,9 @@ $generos = $prueba_app->obtenerOpciones("generos", "id_genero", "nombre");
 <head>
     <meta charset="UTF-8">
     <title>Prueba de Usabilidad - MotoGP Desktop</title>
-    <link rel="stylesheet" type="text/css" href="../estilos/mi_estilo.css" />
-    <link rel="stylesheet" type="text/css" href="../estilos/layout.css" />
-    <script src="../scripts/prueba_usabilidad.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="/MotoGP-Desktop/estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="/MotoGP-Desktop/estilo/layout.css" />
+    <script src="/MotoGP-Desktop/js/prueba_usabilidad.js" defer></script>
 </head>
 
 <body>
@@ -60,6 +60,7 @@ $generos = $prueba_app->obtenerOpciones("generos", "id_genero", "nombre");
         </section>
 
         <article id="formulario-prueba" style="display:none;">
+            <h2>Formulario de Usabilidad</h2>
             <form method="POST" action="procesar_prueba.php">
 
                 <input type="hidden" name="tiempo_segundos" id="tiempo_segundos" value="0">
@@ -100,10 +101,9 @@ $generos = $prueba_app->obtenerOpciones("generos", "id_genero", "nombre");
                             <?php endforeach; ?>
                         </select>
 
-                        <label for="pericia">Pericia Informática (0 - 10): <output for="pericia">5</output></label>
+                        <label>Pericia Informática (0 - 10): <output id="pericia_display">5</output></label>
                         <input type="range" name="pericia" id="pericia" min="0" max="10" step="1" value="5"
-                            oninput="document.querySelector('label[for=pericia] output').value = this.value">
-
+                            oninput="document.getElementById('pericia_display').value = this.value">
                     </fieldset>
                 </section>
 
@@ -129,16 +129,14 @@ $generos = $prueba_app->obtenerOpciones("generos", "id_genero", "nombre");
                             <input type="radio" name="p4" value="Ducati"><label>Ducati</label>
                         </p>
 
-                        <p>5. ¿Qué etiqueta semántica HTML5 se usa en `piloto.html` para la información como "Fecha de
-                            nacimiento" o "Altura"?</p>
+                        <p>5. ¿Cuál es la nacionalidad del piloto Somkiat Chantra?</p>
                         <p>
-                            <input type="radio" name="p5" value="section" required><label>section</label>
-                            <input type="radio" name="p5" value="aside"><label>aside</label>
-                            <input type="radio" name="p5" value="article"><label>article</label>
+                            <input type="radio" name="p5" value="ingles" required><label>ingles</label>
+                            <input type="radio" name="p5" value="italiano"><label>italiano</label>
+                            <input type="radio" name="p5" value="tailandés"><label>tailandés</label>
                         </p>
 
-                        <p>6. Según la sección "Conceptos", ¿qué término describe una serie de curvas pronunciadas para
-                            reducir la velocidad?</p>
+                        <p>6. ¿Qué término describe una serie de curvas pronunciadas para reducir la velocidad?</p>
                         <input type="text" name="p6" placeholder="Concepto (ej: Chicane)" required>
 
                         <p>7. ¿Cómo se llama el equipo para el que corrió Somkiat Chantra de 2019 a 2024?</p>
@@ -150,7 +148,7 @@ $generos = $prueba_app->obtenerOpciones("generos", "id_genero", "nombre");
                         <p>9. ¿Qué término se utiliza para una carrera corta que se celebra los sábados?</p>
                         <input type="text" name="p9" placeholder="Nombre de la carrera" required>
 
-                        <p>10. ¿Cuál es el **peso** (en kilogramos) del piloto Somkiat Chantra?</p>
+                        <p>10. ¿Cuál es el peso (en kilogramos) del piloto Somkiat Chantra?</p>
                         <input type="number" name="p10" placeholder="Peso en kg" required>
 
                     </fieldset>
@@ -185,11 +183,9 @@ $generos = $prueba_app->obtenerOpciones("generos", "id_genero", "nombre");
                         <label for="propuestas">Propuestas de Mejora:</label>
                         <textarea name="propuestas" id="propuestas" rows="5"></textarea>
 
-                        <label for="valoracion">Valoración de la Aplicación (0 - 10): <output
-                                for="valoracion">5</output></label>
+                        <label>Valoración de la Aplicación (0 - 10): <output id="valoracion_display">5</output></label>
                         <input type="range" name="valoracion" id="valoracion" min="0" max="10" step="1" value="5"
-                            oninput="document.querySelector('label[for=valoracion] output').value = this.value">
-
+                            oninput="document.getElementById('valoracion_display').value = this.value">
                     </fieldset>
                 </section>
 
