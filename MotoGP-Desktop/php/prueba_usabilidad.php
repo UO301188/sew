@@ -90,7 +90,7 @@ $generos = $prueba_app->obtenerOpciones("generos", "id_genero", "nombre");
                         </select>
 
                         <label for="edad">Edad:</label>
-                        <input type="number" name="edad" id="edad" min="18" required>
+                        <input type="number" name="edad" id="edad" min="18" max="120" required>
 
                         <label for="genero">Género:</label>
                         <select name="genero" id="genero" required>
