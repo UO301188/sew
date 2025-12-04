@@ -66,10 +66,10 @@ class Clasificacion
                 <h2>Ganador de la Carrera</h2>
                 <article>
                     <h3>El Piloto Victorioso</h3>
-                    <p>El ganador de la carrera en el circuito <strong><?php echo $nombreCircuito; ?></strong> es:</p>
+                    <p>El ganador de la carrera en el circuito <?php echo $nombreCircuito; ?> es:</p>
                     <ul>
-                        <li><strong>Piloto:</strong> <?php echo htmlspecialchars($nombre); ?></li>
-                        <li><strong>Tiempo total:</strong> <?php echo htmlspecialchars($duracionFormateada); ?></li>
+                        <li>Piloto: <?php echo htmlspecialchars($nombre); ?></li>
+                        <li>Tiempo total: <?php echo htmlspecialchars($duracionFormateada); ?></li>
                     </ul>
                 </article>
             </section>
