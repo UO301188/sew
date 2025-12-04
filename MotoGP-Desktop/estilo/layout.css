@@ -173,18 +173,21 @@ header+p {
     /* Especificidad: 0,0,1 */
     p {
         word-wrap: break-word;
+        /* Redefinición de overflow-wrap */
         overflow-wrap: break-word;
     }
 
     /* Especificidad: 0,0,2 */
     footer p {
         word-wrap: break-word;
+        /* Redefinición de overflow-wrap */
         overflow-wrap: break-word;
     }
 
     /* Especificidad: 0,0,1 */
     label {
         word-wrap: break-word;
+        /* Redefinición de overflow-wrap */
         overflow-wrap: break-word;
         display: block;
         max-width: 100%;
