@@ -81,7 +81,7 @@ class Ciudad {
         seccion.append(`<p><strong>Puesta del sol:</strong> ${puestaSol}</p>`);
 
         let lista = $("<ul></ul>");
-        for (let i = 0; i < horas.length; i += 3) { // mostramos cada 3 horas
+        for (let i = 0; i < horas.length; i += 2) { // mostramos cada 2 horas
             const horaLegible = horas[i].replace("T", " Time: ");
             lista.append(`<li><strong>${horaLegible}</strong>: ${temp[i]}°C, sensación ${sensacion[i]}°C, lluvia ${lluvia[i]} mm, humedad ${humedad[i]}%, viento ${vientoVel[i]} km/h (${vientoDir[i]}°)</li>`);
 
