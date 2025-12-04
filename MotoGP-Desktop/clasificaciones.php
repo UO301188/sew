@@ -169,7 +169,7 @@ $miClasificacion = new Clasificacion();
         </nav>
     </header>
 
-    <p class="migas-navegacion">Estás en: <a href="index.html">Inicio</a> &gt;&gt; <strong>Clasificaciones</strong></p>
+    <p>Estás en: <a href="index.html">Inicio</a> &gt;&gt; <strong>Clasificaciones</strong></p>
 
     <main>
         <!-- Contenido dinámico generado por PHP -->
