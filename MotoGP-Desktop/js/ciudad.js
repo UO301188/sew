@@ -45,7 +45,7 @@ class Ciudad {
        ============================== */
 
     getMeteorologiaCarrera() {
-        // Ejemplo: día de la carrera del GP de Italia 2024
+        // Ejemplo: día de la carrera del GP de Italia 2025
         const fechaCarrera = "2025-06-22";
         const url = `https://archive-api.open-meteo.com/v1/archive?latitude=${this.coordenadas.latitud}&longitude=${this.coordenadas.longitud}&start_date=${fechaCarrera}&end_date=${fechaCarrera}&hourly=temperature_2m,apparent_temperature,precipitation,relative_humidity_2m,wind_speed_10m,wind_direction_10m&daily=sunrise,sunset&timezone=auto`;
 
@@ -63,6 +63,7 @@ class Ciudad {
         });
     }
 
+    // --- MÉTODO MODIFICADO ---
     procesarJSONCarrera(datos) {
         const horas = datos.hourly.time;
         const temp = datos.hourly.temperature_2m;
@@ -82,13 +83,22 @@ class Ciudad {
 
         let lista = $("<ul></ul>");
         for (let i = 0; i < horas.length; i += 2) { // mostramos cada 2 horas
-            const horaLegible = horas[i].replace("T", " Time: ");
-            lista.append(`<li><strong>${horaLegible}</strong>: ${temp[i]}°C, sensación ${sensacion[i]}°C, lluvia ${lluvia[i]} mm, humedad ${humedad[i]}%, viento ${vientoVel[i]} km/h (${vientoDir[i]}°)</li>`);
+            const horaRaw = horas[i];
+            const horaLegible = horaRaw.replace("T", " Time: ");
 
+            // --- NUEVA LÓGICA: Detectar las 14:00 ---
+            let marcadorCarrera = "";
+            // Buscamos la cadena "T14:00" que es el formato estándar de la API
+            if (horaRaw.includes("T14:00")) {
+                marcadorCarrera = ' <span >🚩 HORA DE INICIO DE LA CARRERA</span>';
+            }
+
+            lista.append(`<li><strong>${horaLegible}</strong>${marcadorCarrera}: ${temp[i]}°C, sensación ${sensacion[i]}°C, lluvia ${lluvia[i]} mm, humedad ${humedad[i]}%, viento ${vientoVel[i]} km/h (${vientoDir[i]}°)</li>`);
         }
         seccion.append(lista);
         $("main").append(seccion);
     }
+    // -------------------------
 
     getMeteorologiaEntrenos() {
         // Tres días antes de la carrera
@@ -162,7 +172,7 @@ window.addEventListener("DOMContentLoaded", () => {
     mainEl.insertAdjacentHTML("beforeend", scarperia.getInfoSecundaria());
     mainEl.insertAdjacentHTML("beforeend", scarperia.getCoordenadasHTML());
 
-    // Llamadas a la API con jQuery (asegúrate de tener jQuery cargado en el HTML)
+    // Llamadas a la API con jQuery
     $(document).ready(function () {
         scarperia.getMeteorologiaCarrera();
         scarperia.getMeteorologiaEntrenos();
