@@ -137,7 +137,7 @@ $generos = $prueba_app->obtenerOpciones("generos", "id_genero", "nombre");
                         </p>
 
                         <p>6. ¿Qué término describe una serie de curvas pronunciadas para reducir la velocidad?</p>
-                        <input type="text" name="p6" placeholder="Concepto (ej: Chicane)" required>
+                        <input type="text" name="p6" placeholder="Concepto" required>
 
                         <p>7. ¿Cómo se llama el equipo para el que corrió Somkiat Chantra de 2019 a 2024?</p>
                         <input type="text" name="p7" placeholder="Nombre del equipo" required>
