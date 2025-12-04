@@ -122,11 +122,11 @@ $generos = $prueba_app->obtenerOpciones("generos", "id_genero", "nombre");
                         <p>3. ¿Cuál es el año de nacimiento de Somkiat Chantra?</p>
                         <input type="number" name="p3" placeholder="Año de nacimiento" required>
 
-                        <p>4. ¿Cuántos puntos tiene el piloto Somkiat Chantra?</p>
+                        <p>4. ¿Cuál es la poblacion de Scarperia?</p>
                         <p>
-                            <input type="radio" name="p4" value="100" required><label>100</label>
-                            <input type="radio" name="p4" value="102"><label>102</label>
-                            <input type="radio" name="p4" value="103"><label>103</label>
+                            <input type="radio" name="p4" value="7164" required><label>7164</label>
+                            <input type="radio" name="p4" value="6790"><label>6790</label>
+                            <input type="radio" name="p4" value="8976"><label>8976</label>
                         </p>
 
                         <p>5. ¿Cuál es la nacionalidad del piloto Somkiat Chantra?</p>
