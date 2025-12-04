@@ -113,20 +113,20 @@ $generos = $prueba_app->obtenerOpciones("generos", "id_genero", "nombre");
                     <fieldset>
                         <legend>Respuestas Rápidas</legend>
 
-                        <p>1. ¿Cuál es la **longitud** (en metros) del Circuito Internazionale de Mugello?</p>
-                        <input type="number" name="p1" placeholder="Longitud en metros" required>
+                        <p>1. ¿Cuantas tarjetas de memoria hay en el juego?</p>
+                        <input type="number" name="p1" placeholder="Número de tarjetas" required>
 
                         <p>2. ¿Cuál es el **dorsal** que utiliza el piloto Somkiat Chantra?</p>
                         <input type="text" name="p2" placeholder="Número de dorsal" required>
 
-                        <p>3. ¿Cuál es la **latitud** geográfica de la ciudad asociada al circuito (Scarperia)?</p>
-                        <input type="number" name="p3" placeholder="Latitud" step="0.0001" required>
+                        <p>3. ¿Cuál es el año de nacimiento de Somkiat Chantra?</p>
+                        <input type="number" name="p3" placeholder="Año de nacimiento" required>
 
-                        <p>4. ¿Qué **patrocinador** aparece asociado al circuito?</p>
+                        <p>4. ¿Cuántos puntos tiene el piloto Somkiat Chantra?</p>
                         <p>
-                            <input type="radio" name="p4" value="Repsol" required><label>Repsol</label>
-                            <input type="radio" name="p4" value="Yamaha"><label>Yamaha</label>
-                            <input type="radio" name="p4" value="Ducati"><label>Ducati</label>
+                            <input type="radio" name="p4" value="100" required><label>100</label>
+                            <input type="radio" name="p4" value="102"><label>102</label>
+                            <input type="radio" name="p4" value="103"><label>103</label>
                         </p>
 
                         <p>5. ¿Cuál es la nacionalidad del piloto Somkiat Chantra?</p>
@@ -148,8 +148,8 @@ $generos = $prueba_app->obtenerOpciones("generos", "id_genero", "nombre");
                         <p>9. ¿Qué término se utiliza para una carrera corta que se celebra los sábados?</p>
                         <input type="text" name="p9" placeholder="Nombre de la carrera" required>
 
-                        <p>10. ¿Cuál es el peso (en kilogramos) del piloto Somkiat Chantra?</p>
-                        <input type="number" name="p10" placeholder="Peso en kg" required>
+                        <p>10. Quién es el ganador de la carrera?</p>
+                        <input type="text" name="p10" placeholder="Nombre del ganador" required>
 
                     </fieldset>
                 </section>
