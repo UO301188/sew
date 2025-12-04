@@ -163,7 +163,7 @@ $miClasificacion = new Clasificacion();
             <a href="piloto.html" title="MotoGP-Piloto">Piloto</a>
             <a href="circuito.html" title="MotoGP-Circuito">Circuito</a>
             <a href="meteorologia.html" title="MotoGP-Meteorologia">Meteorologia</a>
-            <a href="clasificaciones.php" title="MotoGP-Clasificaciones" class="active">Clasificaciones</a>
+            <a href="clasificaciones.php" title="MotoGP-Clasificaciones">Clasificaciones</a>
             <a href="juegos.html" title="MotoGP-Juegos">Juegos</a>
             <a href="ayuda.html" title="MotoGP-Ayuda">Ayuda</a>
         </nav>
