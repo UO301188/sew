@@ -3,25 +3,62 @@
    del proyecto MotoGP-Desktop */
 
 /* ================================================================ */
-/* ===== REGLAS GLOBALES DE ADAPTABILIDAD Y USABILIDAD ===== */
+/* ===== REGLAS GLOBALES (Solo unidades relativas) ===== */
 /* ================================================================ */
 
+/* Especificidad: 0,0,1 */
 * {
     box-sizing: border-box;
 }
 
+/* Especificidad: 0,0,1 */
+body {
+    /* Evita scroll lateral por desbordamiento */
+    overflow-x: hidden;
+    margin: 0;
+}
 
-
+/* Especificidad: 0,1,1 */
 input[type="file"] {
     max-width: 100%;
     overflow: hidden;
     white-space: nowrap;
 }
 
+/* --- SOLUCIÓN AL SCROLL LATERAL EN TABLETS Y MÓVILES --- */
+/* (Global: max-width: 100% para todo tipo de resoluciones) */
+
+/* Especificidad: 0,0,1 */
+img {
+    max-width: 100%;
+    height: auto;
+    /* display block ya incluido para consistencia en layout */
+    display: block;
+}
+
+/* Especificidad: 0,0,1 */
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Especificidad: 0,0,1 */
+audio {
+    width: 100%;
+}
+
+/* Especificidad: 0,0,1 */
+svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* ================================================================ */
 /* ===== ESQUEMA FLEXBOX PARA EL HEADER ===== */
 /* ================================================================ */
 
+/* Especificidad: 0,0,1 */
 header {
     display: flex;
     flex-direction: column;
@@ -30,19 +67,7 @@ header {
     gap: 1rem;
 }
 
-@media (min-width: 768px) {
-    header {
-        flex-direction: row;
-        /* redefinición flex-direction */
-        justify-content: space-between;
-        /* redefinición justify-content */
-    }
-}
-
-/* ================================================================ */
-/* ===== ESQUEMA FLEXBOX PARA LA NAVEGACIÓN ===== */
-/* ================================================================ */
-
+/* Especificidad: 0,0,2 */
 header nav {
     display: flex;
     flex-wrap: wrap;
@@ -50,23 +75,18 @@ header nav {
     gap: 0.5rem;
 }
 
-@media (min-width: 768px) {
-    header nav {
-        justify-content: flex-end;
-        /* redefinición justify-content */
-    }
-}
-
 /* ================================================================ */
-/* ===== FLEXBOX PARA EL CONTENIDO PRINCIPAL Y FOOTER ===== */
+/* ===== ESQUEMA FLEXBOX PARA EL CONTENIDO PRINCIPAL Y FOOTER ===== */
 /* ================================================================ */
 
+/* Especificidad: 0,0,1 */
 main {
     display: flex;
     flex-direction: column;
     padding: 1rem;
 }
 
+/* Especificidad: 0,0,1 */
 footer {
     width: 100%;
 }
@@ -75,57 +95,54 @@ footer {
 /* ===== MIGAS DE PAN ===== */
 /* ================================================================ */
 
+/* Especificidad: 0,0,2 */
 header+p {
     padding: 0.5rem 1rem;
+    /* Herencia de color comprobada para #f5f5f5 */
     background-color: #f5f5f5;
-    border-bottom: 1px solid #ddd;
+    /* 1px -> 0.0625rem */
+    border-bottom: 0.0625rem solid #ddd;
+    /* Herencia de color comprobada para #333 */
     color: #333;
 }
 
 /* ================================================================ */
-/* ===== ADAPTABILIDAD PARA MÓVILES (Ejercicio 6) ===== */
+/* ===== ESCRITORIO / TABLET GRANDE (>= 768px ó 48em) ===== */
 /* ================================================================ */
 
-@media (min-width: 320px) and (max-width: 799px) {
+/* Convertido a em (768px / 16 = 48em) */
+@media (min-width: 48em) {
 
+    /* Especificidad: 0,0,1 */
     header {
-        flex-direction: column;
+        flex-direction: row;
         /* redefinición flex-direction */
-        align-items: center;
-        /* redefinición align-items */
+        justify-content: space-between;
+        /* redefinición justify-content */
     }
 
+    /* Especificidad: 0,0,2 */
     header nav {
-        flex-direction: column;
-        /* redefinición flex-direction */
-        align-items: center;
-        /* redefinición align-items */
+        justify-content: flex-end;
+        /* redefinición justify-content */
     }
+}
 
+/* ================================================================ */
+/* ===== ADAPTABILIDAD PARA MÓVILES (< 768px ó 47.9375em) ===== */
+/* ================================================================ */
+
+/* Convertido a em (767px / 16 = 47.9375em) */
+@media (max-width: 47.9375em) {
+
+    /* Especificidad: 0,0,2 */
     header+p {
         display: none;
         /* redefinición display */
     }
 
-    video {
-        width: 100%;
-        /* redefinición width */
-        height: auto;
-        /* redefinición height */
-    }
-
-    audio {
-        width: 100%;
-        /* redefinición width */
-    }
-
-    img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-    }
-
     /* Adaptación de tablas */
+    /* Especificidad: 0,0,1 */
     table,
     thead,
     tbody,
@@ -138,41 +155,46 @@ header+p {
         /* redefinición width */
     }
 
+    /* Especificidad: 0,0,1 */
     thead {
         display: none;
         /* redefinición display */
     }
 
+    /* Especificidad: 0,0,1 */
     td {
         padding: 0.5rem 0;
-        border-bottom: 1px solid #ddd;
+        /* 1px -> 0.0625rem */
+        border-bottom: 0.0625rem solid #ddd;
+        /* redefinición padding y border-bottom */
     }
 
-    p,
-    footer p,
-    label {
+    /* Control de desbordamiento de texto */
+    /* Especificidad: 0,0,1 */
+    p {
         word-wrap: break-word;
         overflow-wrap: break-word;
     }
 
-    label {
-        display: block;
-        max-width: 100%;
-    }
-
-    article h2+img {
-        width: 100%;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-        border-radius: 0.5rem;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    /* Especificidad: 0,0,2 */
+    footer p {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     /* Especificidad: 0,0,1 */
-    svg {
-        max-width: 100%;
-        height: auto;
+    label {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
         display: block;
+        max-width: 100%;
+    }
+
+    /* Especificidad: 0,0,3 */
+    article h2+img {
+        margin: 0 auto;
+        border-radius: 0.5rem;
+        /* 2px -> 0.125rem, 6px -> 0.375rem */
+        box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.2);
     }
 }
