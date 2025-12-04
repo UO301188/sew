@@ -46,7 +46,7 @@ class Ciudad {
 
     getMeteorologiaCarrera() {
         // Ejemplo: día de la carrera del GP de Italia 2024
-        const fechaCarrera = "2024-06-02";
+        const fechaCarrera = "2025-06-22";
         const url = `https://archive-api.open-meteo.com/v1/archive?latitude=${this.coordenadas.latitud}&longitude=${this.coordenadas.longitud}&start_date=${fechaCarrera}&end_date=${fechaCarrera}&hourly=temperature_2m,apparent_temperature,precipitation,relative_humidity_2m,wind_speed_10m,wind_direction_10m&daily=sunrise,sunset&timezone=auto`;
 
         const self = this;
@@ -54,10 +54,10 @@ class Ciudad {
         $.ajax({
             dataType: "json",
             url: url,
-            success: function(datos) {
+            success: function (datos) {
                 self.procesarJSONCarrera(datos);
             },
-            error: function() {
+            error: function () {
                 $("main").append("<p>Error al obtener los datos meteorológicos del día de la carrera.</p>");
             }
         });
@@ -92,8 +92,8 @@ class Ciudad {
 
     getMeteorologiaEntrenos() {
         // Tres días antes de la carrera
-        const start = "2024-05-30";
-        const end = "2024-06-01";
+        const start = "2025-06-20";
+        const end = "2025-06-21";
         const url = `https://archive-api.open-meteo.com/v1/archive?latitude=${this.coordenadas.latitud}&longitude=${this.coordenadas.longitud}&start_date=${start}&end_date=${end}&hourly=temperature_2m,precipitation,wind_speed_10m,relative_humidity_2m&timezone=auto`;
 
         const self = this;
@@ -101,10 +101,10 @@ class Ciudad {
         $.ajax({
             dataType: "json",
             url: url,
-            success: function(datos) {
+            success: function (datos) {
                 self.procesarJSONEntrenos(datos);
             },
-            error: function() {
+            error: function () {
                 $("main").append("<p>Error al obtener los datos meteorológicos de entrenamientos.</p>");
             }
         });
@@ -163,7 +163,7 @@ window.addEventListener("DOMContentLoaded", () => {
     mainEl.insertAdjacentHTML("beforeend", scarperia.getCoordenadasHTML());
 
     // Llamadas a la API con jQuery (asegúrate de tener jQuery cargado en el HTML)
-    $(document).ready(function() {
+    $(document).ready(function () {
         scarperia.getMeteorologiaCarrera();
         scarperia.getMeteorologiaEntrenos();
     });
